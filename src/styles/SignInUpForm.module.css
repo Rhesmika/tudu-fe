@@ -1,3 +1,40 @@
-h1{
-    background-color: aqua;
+.Row {
+    background-color: #F0ECEF;
+    border-radius: 25px;
+    padding: 20px;
 }
+.Header{
+    font-size: 36px;
+    text-align: center;
+    color: #ff9254;
+    padding-bottom: 5px;
+}
+.Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+    color: #3A4A56;
+}
+
+.Link span {
+    color: #ff9254;
+  }
+  
+
+.SignUpCol {
+    height: 375px;
+}
+
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+.TeamImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+  }

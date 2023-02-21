@@ -1,0 +1,51 @@
+.Button {
+    align-self: center;
+    border-radius: 25px;
+    padding: 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 75px;
+  }
+
+  .Wide {
+    padding: 10px 50px;
+    width: 100%;
+  }
+
+  .Button:hover {
+    cursor: pointer;
+  }
+
+  .Orange{
+    background-color: #F2B55A;
+    color: #FFFFFF;
+    border-color: transparent;
+  }
+  .Orange:hover{
+    background-color: #F27441;
+    border-color: transparent;
+  }
+
+.Dark{
+    background-color: #3A4A56;
+    color: #FFFFFF;
+    border-color: transparent;
+}
+
+.Dark:hover{
+    background-color: #F0ECEF;
+    color: #3A4A56;
+    border-color: transparent;
+  }
+
+.Light{
+    background-color: #F0ECEF;
+    color: #3A4A56;
+    border-color: transparent;
+}
+
+.Light:hover{
+    background-color: #F2B55A;
+    color: #FFFFFF;
+    border-color: transparent;
+  }
