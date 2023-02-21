@@ -5,3 +5,38 @@
 .Logo {
    cursor: pointer;
 }
+.NavLink {
+   color: #878787;
+   padding-left: 20px;
+ }
+ .Active i{
+   color: #F27441;
+ }
+
+ i {
+   color: #BFBBBE;
+   font-size: 1.6rem;
+   padding: 5px;
+   vertical-align: middle;
+ }
+ 
+ i:hover {
+   cursor: pointer;
+   transition: color ease-in-out 0.3s;
+   color: #F2B55A;
+ }
+
+ a:hover {
+   text-decoration: none;
+   cursor: pointer;
+   color: #3A4A56;
+ }
+ 
+ a:hover i {
+   color: #F2B55A;
+   transition: color ease-in-out 0.3s;
+ }
+
+ /* a:active{
+   background-color: aqua;
+ } */
