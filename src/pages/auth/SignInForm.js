@@ -7,11 +7,14 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { Form, Button, Image, Col, Row, Container, Alert, } from "react-bootstrap";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm(){
+  const setCurrentUser = useSetCurrentUser();
+
     const[signInData, setSignInData] = useState({
-        username: "",
-        password1: "",
+      username: "",
+      password: "",
     });
     const { username, password } = signInData;
 
@@ -20,21 +23,23 @@ function SignInForm(){
     const history = useHistory();
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await axios.post("/dj-rest-auth/registration/", signInData);
-            history.push("/");
-        } catch (err) {
-            setErrors(err.response?.data);
-        }
+      event.preventDefault();
+      
+      try {
+        const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+        setCurrentUser(data.user);
+        history.push("/");
+      } catch (err) {
+        setErrors(err.response?.data);
+      }
     };
 
     const handleChange = (event) => {
-        setSignInData({
-          ...signInData,
-          [event.target.name]: event.target.value,
-        });
-      };
+      setSignInData({
+        ...signInData,
+        [event.target.name]: event.target.value,
+      });
+    };
 
     return (
         <Row className={styles.Row}>
@@ -51,63 +56,63 @@ function SignInForm(){
 
         <Col className="my-auto py-2 p-md-2" md={6}>
             <Container className={`${styles.Content} p-4 `}>
-            <h1 className={styles.Header}>Sign In</h1>
-            <Form onSubmit={handleSubmit}>
+              <h1 className={styles.Header}>Sign In</h1>
+              <Form onSubmit={handleSubmit}>
 
-            <Form.Group controlId="username">
-                <Form.Label className="d-none">Username</Form.Label>
-                <Form.Control
-                type="text"
-                placeholder="Username"
-                name="username"
-                className={styles.Input}
-                value={username}
-                onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.username?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
+                <Form.Group controlId="username">
+                    <Form.Label className="d-none">Username</Form.Label>
+                    <Form.Control
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    className={styles.Input}
+                    value={username}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors.username?.map((message, idx) => (
+                  <Alert key={idx} variant="warning">
+                    {message}
+                  </Alert>
+                ))}
 
-            <Form.Group controlId="password">
-                <Form.Label className="d-none">Password</Form.Label>
-                <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                className={styles.Input}
-                value={password}
-                onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.password?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
+                <Form.Group controlId="password">
+                    <Form.Label className="d-none">Password</Form.Label>
+                    <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    className={styles.Input}
+                    value={password}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors.password?.map((message, idx) => (
+                  <Alert key={idx} variant="warning">
+                    {message}
+                  </Alert>
+                ))}
 
-            <Button
-            type="submit"
-            className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Orange}`}
-            >
-                Sign in
-            </Button>
-            {errors.non_field_errors?.map((message, idx) => (
-              <Alert key={idx} variant="warning" className="mt-3">
-                {message}
-              </Alert>
-            ))}
-            </Form>
+                <Button
+                type="submit"
+                className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Orange}`}
+                >
+                    Sign in
+                </Button>
+                {errors.non_field_errors?.map((message, idx) => (
+                  <Alert key={idx} variant="warning" className="mt-3">
+                    {message}
+                  </Alert>
+                ))}
+                </Form>
 
+              </Container>
+              <Container className={`mt-3 ${styles.Content}`}>
+                <Link className={styles.Link} to="/signup">
+                  Don't have an account yet? <span>Sign Up!</span>
+              </Link>
             </Container>
-            <Container className={`mt-3 ${styles.Content}`}>
-            <Link className={styles.Link} to="/signup">
-                Don't have an account yet? <span>Sign Up!</span>
-            </Link>
-            </Container>
-        </Col>
+          </Col>
 
         </Row>
   );
