@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/tudu_logo.png";
 import styles from "../styles/NavBar.module.css";
