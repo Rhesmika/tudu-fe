@@ -23,14 +23,44 @@ const NavBar = () => {
     <>
       <NavLink
         className={styles.NavLink}
+        to="/teams">
+        <i class="fa-solid fa-people-group"></i>Teams   
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to="/boards">
+        <i class="fa-solid fa-rectangle-list"></i>Boards   
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to="/tasks">
+        <i class="fa-solid fa-check"></i>Tasks   
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
         to="/"
         onClick={handleSignOut}>
         <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <img src={currentUser?.profile_image} alt="profile" height="35"/>
       </NavLink>
     </>
   );
   const loggedOutIcons = (
     <>
+      <NavLink
+        exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/"
+      >
+        <i className="fa-solid fa-flag"></i>  Home
+
+      </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -47,29 +77,37 @@ const NavBar = () => {
     </>
   );
 
-  return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
-      <Container>
+  const loggedOutLogo = (
+    <>
         <NavLink to="/">
+          <Navbar.Brand>
+            <img className={styles.LogoOut} src={logo} alt="logo" height="45" />
+          </Navbar.Brand>
+        </NavLink>
+    </>
+  )
+  const loggedInLogo = (
+    <>
+        <NavLink to="/teams">
           <Navbar.Brand>
             <img className={styles.Logo} src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
+    </>
+  )
+
+  return (
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
+      <Container>
+
+        {currentUser ? loggedInLogo : loggedOutLogo}
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-right">
-            <NavLink
-                exact
-                className={styles.NavLink}
-                activeClassName={styles.Active}
-                to="/"
-              >
-                <i className="fa-solid fa-flag"></i>  Home
-
-            </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
+
           </Nav>
         </Navbar.Collapse>
       </Container>
