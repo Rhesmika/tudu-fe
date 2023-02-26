@@ -5,11 +5,12 @@ import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-import TeamCreateForm from "./pages/teams/TeamsCreateForm";
+import TeamsCreateForm from "./pages/teams/TeamsCreateForm";
 
 
 
 function App() {
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -18,7 +19,7 @@ function App() {
           <Route exact path="/" render={() => <h1>Home page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/teams/newteam" render={() => <TeamCreateForm />} />
+          <Route exact path="/teams/create" render={() => <TeamsCreateForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
