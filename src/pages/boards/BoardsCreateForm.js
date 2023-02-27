@@ -24,6 +24,7 @@ function BoardsCreateForm() {
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const formData = new FormData();
 
     formData.append('name', name)
@@ -32,12 +33,12 @@ function BoardsCreateForm() {
       const {data} = await axiosReq.post('/boards/', formData);
       history.push(`/boards/${data.id}`);
     } catch(err){
-      console.log(err)
+      console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.response?.data)
+        setErrors(err.response?.data);
       }  
     }
-  }
+  };
 
 
     return (
@@ -55,7 +56,7 @@ function BoardsCreateForm() {
                   onChange={handleChange}
                   />
             </Form.Group>
-                {errors?.title?.map((message, idx) => (
+                {errors?.name?.map((message, idx) => (
                     <Alert variant="warning" key={idx}>
                     {message}
                     </Alert>
