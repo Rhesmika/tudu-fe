@@ -1,5 +1,5 @@
 import React, {useState } from "react"
-import { Button,  Container, Form,   } from "react-bootstrap"
+import { Alert, Button,  Container, Form,   } from "react-bootstrap"
 import styles from "../../styles/BoardsCreateForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom";
@@ -7,7 +7,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 
 function BoardsCreateForm() {
-  const [setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const [boardData, setBoardData] = useState({
     name: "",
@@ -40,14 +40,12 @@ function BoardsCreateForm() {
   }
 
 
-  return (
+    return (
     <Container className={styles.Container}>
-            <h1> NEW BOARD</h1>
-
-      <Form onSubmit={handleSubmit}>
-
+        <h1> NEW BOARD</h1>
+        <Form onSubmit={handleSubmit}>
         <Form.Row>
-              <Form.Group controlId="name">
+            <Form.Group controlId="name">
                 <Form.Label className="d-none">Board Name</Form.Label>
                 <Form.Control
                   type="name"
@@ -56,7 +54,12 @@ function BoardsCreateForm() {
                   value={name}
                   onChange={handleChange}
                   />
-              </Form.Group>
+            </Form.Group>
+                {errors?.title?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                    {message}
+                    </Alert>
+                ))}
         </Form.Row>
 
 
