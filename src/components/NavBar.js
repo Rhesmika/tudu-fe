@@ -26,12 +26,6 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/teams">
-        <i class="fa-solid fa-people-group"></i>Teams   
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/boards">
         <i class="fa-solid fa-rectangle-list"></i>Boards   
       </NavLink>
@@ -93,7 +87,7 @@ const NavBar = () => {
   )
   const loggedInLogo = (
     <>
-        <NavLink to="/teams">
+        <NavLink to="/boards">
           <Navbar.Brand>
             <img className={styles.Logo} src={logo} alt="logo" height="45" />
           </Navbar.Brand>
