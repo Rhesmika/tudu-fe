@@ -7,7 +7,12 @@
  .Main {
   padding-top: 100px;
 }
-
+.Container {
+   background-color: #FFFFFF;
+   border-radius: 25px;
+   padding: 30px;
+   color: #3A4A56;
+}
 
 .Image {
    max-height: 40vh;
