@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Boards.module.css";
 
@@ -11,6 +12,7 @@ export const Board = (props) => {
         owner,
         is_owner,
         tasks_count,
+        boardPage,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -18,13 +20,19 @@ export const Board = (props) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Title</Card.Title>
-        <Card.Text className={styles.TaskNames}>
-            <p>tasks</p>
-        </Card.Text>
-
-        {/* <Button variant="primary">Go somewhere</Button> */}
-      </Card.Body>
+          <Link to={`/boards/${id}`} className={styles.Title}>
+            {name && <Card.Title>{name}</Card.Title> }
+          </Link>
+        <div  className={styles.TaskNames}>
+          <Link to={`/boards/${id}`}>
+            <i class="fa-solid fa-square-check"></i>
+          </Link>
+          {tasks_count} tasks
+        </div>
+        <div  className={styles.Edit}>
+          {is_owner && boardPage && "..."}
+        </div>
+      </Card.Body> 
     </Card>
   )
 }

@@ -34,7 +34,7 @@ function BoardPage() {
         <Container className={appStyles.Container}>
             <Row>
                 <Col className={styles.Title}>
-                    <Board {...board.results[0]} setBoard={setBoard} />
+                    <Board {...board.results[0]} setBoard={setBoard} boardPage />
                 </Col>
             </Row>
             {/* <Row>
