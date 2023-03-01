@@ -9,11 +9,11 @@ import BoardsCreateForm from "./pages/boards/BoardsCreateForm";
 import BoardPage from "./pages/boards/BoardPage";
 import TasksCreateForm from "./pages/tasks/TasksCreateForm";
 
-
 function App() {
 
   return (
     <div className={styles.App}>
+      
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
@@ -23,7 +23,6 @@ function App() {
           <Route exact path="/boards/create" render={() => <BoardsCreateForm />} />
           <Route exact path="/boards/:id" render={() => <BoardPage />} />
           <Route exact path="/tasks/create" render={() => <TasksCreateForm />} />
-
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

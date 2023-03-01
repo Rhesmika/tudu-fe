@@ -4,8 +4,7 @@ import styles from "../../styles/BoardsCreateForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-
-
+import BoardDropdown from "../../components/BoardDropdown";
 
 function TasksCreateForm() {
   const [errors, setErrors] = useState({});
@@ -16,10 +15,11 @@ function TasksCreateForm() {
     duedate: "",
     status: "",
     priority: "",
+    board:"",
 
 
   });
-  const { title, description, duedate, status, priority} = taskData;
+  const { title, description, duedate, status, priority, board} = taskData;
 
   const history = useHistory();
 
@@ -39,6 +39,8 @@ function TasksCreateForm() {
     formData.append('duedate', duedate)
     formData.append('status', status)
     formData.append('priority', priority)
+    formData.append('board', board)
+
 
 
     try {
@@ -55,6 +57,7 @@ function TasksCreateForm() {
 
     return (
     <Container className={styles.Container}>
+        <BoardDropdown />
         <h1> NEW TASK</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Row>
@@ -147,6 +150,20 @@ function TasksCreateForm() {
                     </Alert>
                 ))}
 
+            <Form.Group controlId="board">
+                <Form.Label className="d-none">Board</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="board"
+                    value={board}
+                    onChange={handleChange}
+                >
+                <option>
+                    {/* {boards.name} */}
+                </option>
+
+                </Form.Control>
+            </Form.Group>
 
 
 
