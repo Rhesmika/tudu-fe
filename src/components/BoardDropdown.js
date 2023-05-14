@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function BoardDropdown(){
-    const [boards, setBoards] = useState({results: []});
+function BoardDropdown() {
+    const [boards, setBoards] = useState({ results: [] });
 
-    useEffect(function(){
+    useEffect(function () {
         axios
-            .get("https://tudu.herokuapp.com/boards")
-            .then((response) => setBoards(response.data))
+            .get("/boards/")
+            .then((response) => setBoards({ ...boards, results: response.data.results }))
             .then((error) => console.log(error))
-    });
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <select>
             {boards.results.map((board) => (
-                <option value={board.id}>
+                <option key={`board_id-${board.id}`} value={board.id}>
                     {board.name}
                 </option>
             ))}
         </select>
     );
-    
+
 }
 export default BoardDropdown;

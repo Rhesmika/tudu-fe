@@ -27,19 +27,19 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/boards">
-        <i class="fa-solid fa-rectangle-list"></i>Boards   
+        <i className="fa-solid fa-rectangle-list"></i>Boards   
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/tasks">
-        <i class="fa-solid fa-check"></i>Tasks   
+        <i className="fa-solid fa-check"></i>Tasks   
       </NavLink>
       <NavLink
         className={styles.NavLink}
         to="/"
         onClick={handleSignOut}>
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
+        <i className="fa-solid fa-arrow-right-from-bracket"></i>Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}

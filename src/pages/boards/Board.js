@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Boards.module.css";
@@ -7,9 +7,7 @@ import styles from "../../styles/Boards.module.css";
 export const Board = (props) => {
     const {
         id,
-        created_at,
         name,
-        owner,
         is_owner,
         tasks_count,
         boardPage,
