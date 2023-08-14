@@ -149,7 +149,6 @@ function TasksCreateForm() {
                     {message}
                     </Alert>
                 ))}
-
             <Form.Group controlId="board">
                 <Form.Label className="d-none">Board</Form.Label>
                 <Form.Control
@@ -164,8 +163,6 @@ function TasksCreateForm() {
 
                 </Form.Control>
             </Form.Group>
-
-
 
             {/* <Form.Group controlId="attachment">
                 <Form.Label className="d-none">Attachment</Form.Label>
