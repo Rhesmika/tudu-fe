@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+// import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Boards.module.css";
 
 export const Board = (props) => {
@@ -13,7 +13,7 @@ export const Board = (props) => {
         boardPage,
     } = props;
 
-    const currentUser = useCurrentUser();
+    // const currentUser = useCurrentUser();
 
   return (
     <Card>
