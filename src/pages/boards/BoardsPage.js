@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom';
+
 
 import { Board } from "./Board";
 import Asset from "../../components/Asset.js";
@@ -36,32 +38,41 @@ function BoardsPage({ message, filter = "" }) {
   }, [filter, pathname]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+    <Container>
+      <Row>
         <h1>My Boards</h1>
-        {hasLoaded ? (
-          <>
-            {boards.results.length ? (
-              boards.results
-              .filter(board => board.is_owner)
-              .map((board) => (
-                <Board key={board.id} {...board} setBoards={setBoards} />
-              ))
-            ) : (
-              <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message} />
-              </Container>
-            )}
-          </>
-        ) : (
-          <Container className={appStyles.Content}>
-            <Asset spinner />
-          </Container>
-        )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-      </Col>
-    </Row>
+      </Row>
+      <Row>
+        <Link to={`/boards/create`}>
+            {<h4>Create Board</h4>}
+          </Link>
+      </Row>
+      <Row className="h-100">
+        <Col className="py-2 p-0 p-lg-2" lg={8}>
+          {hasLoaded ? (
+            <>
+              {boards.results.length ? (
+                boards.results
+                .filter(board => board.is_owner)
+                .map((board) => (
+                  <Board key={board.id} {...board} setBoards={setBoards} />
+                ))
+              ) : (
+                <Container className={appStyles.Content}>
+                  <Asset src={NoResults} message={message} />
+                </Container>
+              )}
+            </>
+          ) : (
+            <Container className={appStyles.Content}>
+              <Asset spinner />
+            </Container>
+          )}
+        </Col>
+        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

@@ -8,9 +8,7 @@ export const Board = (props) => {
     const {
         id,
         name,
-        is_owner,
         tasks_count,
-        boardPage,
     } = props;
 
     // const currentUser = useCurrentUser();
@@ -27,9 +25,9 @@ export const Board = (props) => {
           </Link>
           {tasks_count} tasks
         </div>
-        <div  className={styles.Edit}>
-          {is_owner && boardPage && "..."}
-        </div>
+        {/* <div  className={styles.Edit}>
+          {boardPage}
+        </div> */}
       </Card.Body> 
     </Card>
   )
