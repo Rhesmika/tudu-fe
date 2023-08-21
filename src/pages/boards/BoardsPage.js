@@ -16,16 +16,20 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.jpg";
+import { Form } from "react-bootstrap";
 
 function BoardsPage({ message, filter = "" }) {
   const [boards, setBoards] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
+
   useEffect(() => {
     const fetchBoards = async () => {
       try {
-        const { data } = await axiosReq.get(`/boards`);
+        const { data } = await axiosReq.get(`/boards/?${filter}search=${query}`);
         setBoards(data);
         setHasLoaded(true);
       } catch (err) {
@@ -34,8 +38,14 @@ function BoardsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchBoards();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchBoards();
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname]);
 
   return (
     <Container>
@@ -44,9 +54,26 @@ function BoardsPage({ message, filter = "" }) {
       </Row>
       <Row>
         <Link to={`/boards/create`}>
-            {<h4>Create Board</h4>}
-          </Link>
+          <i class="fa-solid fa-plus"></i><h4>New Board</h4>
+        </Link>
       </Row>
+
+
+      <Row>
+        <i class="fa-solid fa-magnifying-glass"></i><h4>Search</h4>
+        <Form
+          onSubmit={(event) => event.preventDefault()}>
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            placeholder="Search posts"
+          />
+        </Form>
+      </Row>
+
+
+
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           {hasLoaded ? (
