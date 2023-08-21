@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Boards.module.css";
@@ -13,6 +14,7 @@ import { Board } from "./Board";
 function BoardPage() {
     const {id} = useParams();
     const [board, setBoard] = useState({ results: [] });
+    const history = useHistory()
 
     useEffect(() => {
         const handleMount = async () => {
@@ -20,7 +22,11 @@ function BoardPage() {
             const [{ data: board }] = await Promise.all([
               axiosReq.get(`/boards/${id}`),
             ]);
-            setBoard({ results: [board] });
+            if(board.is_owner){
+              setBoard({ results: [board] });
+            } else {
+              history.push("/boards/")
+            }            
             console.log(board);
           } catch (err) {
             console.log(err);
@@ -28,7 +34,7 @@ function BoardPage() {
         };
 
         handleMount();
-    }, [id]); 
+    }, [id, history]); 
     
     return (
         <Container className={appStyles.Container}>

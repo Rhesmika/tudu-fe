@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import { Board } from "./Board";
-// import Board from "./BoardPage";
 import Asset from "../../components/Asset.js";
 
 import appStyles from "../../App.module.css";
@@ -24,7 +23,7 @@ function BoardsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchBoards = async () => {
       try {
-        const { data } = await axiosReq.get(`/boards/?${filter}`);
+        const { data } = await axiosReq.get(`/boards`);
         setBoards(data);
         setHasLoaded(true);
       } catch (err) {
@@ -43,7 +42,9 @@ function BoardsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {boards.results.length ? (
-              boards.results.map((board) => (
+              boards.results
+              .filter(board => board.is_owner)
+              .map((board) => (
                 <Board key={board.id} {...board} setBoards={setBoards} />
               ))
             ) : (
