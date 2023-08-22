@@ -25,7 +25,8 @@ export const Board = (props) => {
     const handleDelete = async () => {
       try {
         await axiosRes.delete(`/boards/${id}/`);
-        history.goBack();
+        history.push(`/boards`)
+        window.location.reload()
       } catch (err) {
         console.log(err);
       }
