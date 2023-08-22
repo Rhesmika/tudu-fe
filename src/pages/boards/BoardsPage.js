@@ -17,6 +17,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.jpg";
 import { Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+
 
 function BoardsPage({ message, filter = "" }) {
   const [boards, setBoards] = useState({ results: [] });
@@ -76,20 +79,30 @@ function BoardsPage({ message, filter = "" }) {
 
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
+
+
           {hasLoaded ? (
             <>
               {boards.results.length ? (
-                boards.results
-                .filter(board => board.is_owner)
-                .map((board) => (
-                  <Board key={board.id} {...board} setBoards={setBoards} />
-                ))
+                <InfiniteScroll
+                  children={boards.results
+                    .filter(board => board.is_owner)
+                    .map((board) => (
+                    <Board key={board.id} {...board} setBoards={setBoards} />
+                  ))}
+                  dataLength={boards.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!boards.next}
+                  next={() => fetchMoreData(boards, setBoards)}
+                />
               ) : (
                 <Container className={appStyles.Content}>
                   <Asset src={NoResults} message={message} />
                 </Container>
               )}
             </>
+
+            
           ) : (
             <Container className={appStyles.Content}>
               <Asset spinner />
