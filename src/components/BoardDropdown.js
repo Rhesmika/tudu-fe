@@ -14,7 +14,9 @@ function BoardDropdown() {
 
     return (
         <select>
-            {boards.results.map((board) => (
+            {boards.results
+            .filter(board => board.is_owner)
+            .map((board) => (
                 <option key={`board_id-${board.id}`} value={board.id}>
                     {board.name}
                 </option>
