@@ -9,6 +9,7 @@ import BoardsCreateForm from "./pages/boards/BoardsCreateForm";
 import BoardPage from "./pages/boards/BoardPage";
 import TasksCreateForm from "./pages/tasks/TasksCreateForm";
 import BoardsPage from "./pages/boards/BoardsPage";
+import BoardEditForm from "./pages/boards/BoardEditForm";
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
 
           <Route exact path="/boards/create" render={() => <BoardsCreateForm />} />
           <Route exact path="/boards/:id" render={() => <BoardPage />} />
+          <Route exact path="/boards/:id/edit" render={() => <BoardEditForm />} />
+
           <Route exact path="/tasks/create" render={() => <TasksCreateForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
