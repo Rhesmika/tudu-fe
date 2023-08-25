@@ -1,10 +1,10 @@
-import React, {useState } from "react"
+import React, {useEffect, useState } from "react"
 import { Alert, Button,  Container, Form,   } from "react-bootstrap"
 import styles from "../../styles/BoardsCreateForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import BoardDropdown from "../../components/BoardDropdown";
+import axios from "axios";
 
 function TasksCreateForm() {
   const [errors, setErrors] = useState({});
@@ -20,6 +20,16 @@ function TasksCreateForm() {
 
   });
   const { title, description, duedate, status, priority, board} = taskData;
+
+  const [boards, setBoards] = useState({ results: [] });
+
+  useEffect(function () {
+      axios
+          .get("/boards/")
+          .then((response) => setBoards({ ...boards, results: response.data.results }))
+          .then((error) => console.log(error))
+      // eslint-disable-next-line
+  }, []);
 
   const history = useHistory();
 
@@ -57,7 +67,6 @@ function TasksCreateForm() {
 
     return (
     <Container className={styles.Container}>
-        <BoardDropdown />
         <h1> NEW TASK</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Row>
@@ -149,6 +158,8 @@ function TasksCreateForm() {
                     {message}
                     </Alert>
                 ))}
+
+
             <Form.Group controlId="board">
                 <Form.Label className="d-none">Board</Form.Label>
                 <Form.Control
@@ -157,12 +168,17 @@ function TasksCreateForm() {
                     value={board}
                     onChange={handleChange}
                 >
-                <option>
-                    {/* {boards.name} */}
-                </option>
-
+                      {boards.results
+                      .filter(board => board.is_owner)
+                      .map((board) => (
+                          <option key={`board_id-${board.id}`} value={board.id}>
+                              {board.name}
+                          </option>
+                      ))}
                 </Form.Control>
             </Form.Group>
+
+
 
             {/* <Form.Group controlId="attachment">
                 <Form.Label className="d-none">Attachment</Form.Label>
