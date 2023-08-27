@@ -47,6 +47,13 @@ export const Board = (props) => {
             handleDelete={handleDelete}
             />
         </div>
+        <div>
+          
+          {/* <Link to={`/tasks/create`}>
+          <i class="fa-regular fa-square"></i>
+            Add task
+          </Link> */}
+        </div>
 
         <div  className={styles.TaskNames}>
           <Link to={`/boards/${id}`}>

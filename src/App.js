@@ -7,7 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import BoardsCreateForm from "./pages/boards/BoardsCreateForm";
 import BoardPage from "./pages/boards/BoardPage";
-import TasksCreateForm from "./pages/tasks/TasksCreateForm";
+import TaskCreateForm from "./pages/tasks/TaskCreateForm";
 import BoardsPage from "./pages/boards/BoardsPage";
 import BoardEditForm from "./pages/boards/BoardEditForm";
 
@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/boards/:id" render={() => <BoardPage />} />
           <Route exact path="/boards/:id/edit" render={() => <BoardEditForm />} />
 
-          <Route exact path="/tasks/create" render={() => <TasksCreateForm />} />
+          <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

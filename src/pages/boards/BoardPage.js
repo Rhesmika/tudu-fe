@@ -10,11 +10,16 @@ import styles from "../../styles/Boards.module.css";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Board } from "./Board";
+import TaskCreateForm from "../tasks/TaskCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 function BoardPage() {
     const {id} = useParams();
     const [board, setBoard] = useState({ results: [] });
     const history = useHistory()
+    const currentUser = useCurrentUser();
+    const [tasks, setTasks] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
@@ -43,11 +48,17 @@ function BoardPage() {
                     <Board {...board.results[0]} setBoard={setBoard} boardPage />
                 </Col>
             </Row>
-            {/* <Row>
-                <Container className={styles.TaskNames}>
-                    <h3>Tasks</h3>
-                </Container>
-            </Row> */}
+            <Row>
+              {currentUser ? (
+                <TaskCreateForm
+                  board={id}
+                  setBoard={setBoard}
+                  setTasks={setTasks}
+                />
+              ) : tasks.results.length ? (
+                "tasks"
+              ) : null}
+            </Row>
         </Container>
     );
 }
