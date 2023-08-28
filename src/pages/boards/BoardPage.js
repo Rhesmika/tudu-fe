@@ -6,6 +6,8 @@ import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/BoardsPage.module.css";
+
 
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -55,15 +57,16 @@ function BoardPage() {
             </Row>
 
 
-            <Row>
+            <Row className={styles.form}>
               {currentUser ? (
-                <Row>
+                <Row className={styles.form}>
                   <TaskCreateForm
                     profile_id={currentUser.profile_id}
                     profileImage={profile_image}
                     board={id}
                     setBoard={setBoard}
                     setTasks={setTasks}
+
                   />
                 </Row>
               ) : tasks.results.length ? (

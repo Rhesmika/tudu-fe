@@ -1,7 +1,12 @@
 .Form {
-    background-color: #3A4A56;
+    background-color:aqua;
     border-radius: 25px;
+    padding: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 100%;
   }
+
   
   .Button {
     border: none;
@@ -18,3 +23,10 @@
     background-color: aliceblue;
     color: #3A4A56;
   }
+
+  .FormField{
+    background-color: aquamarine;
+    border-radius: 25px;
+    padding-right: 100px;
+  }
+  

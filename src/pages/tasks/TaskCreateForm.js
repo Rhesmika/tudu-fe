@@ -1,17 +1,18 @@
 import React, { useState, useRef } from "react";
 
 import Form from "react-bootstrap/Form";
-import Avatar from "../../components/Avatar";
 
+import appStyles from "../../App.module.css";
 import styles from "../../styles/TaskCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
 import { axiosRes } from "../../api/axiosDefaults";
-import { Alert, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Alert, Button, Container } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
   const [errors, setErrors] = useState({});
-  const { board, setBoard, setTasks, profileImage, profile_id} = props;
+  const { board, setBoard, setTasks} = props;
 
   const fileInput = useRef(null);
 
@@ -81,10 +82,8 @@ function TaskCreateForm(props) {
   };
 
   return (
+    <Container >
     <Form onSubmit={handleSubmit} className={styles.Form}>
-                <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>
         <Form.Row>
             <Form.Group>
                 <Form.Control
@@ -93,6 +92,7 @@ function TaskCreateForm(props) {
                     name="title"
                     value={title}
                     onChange={handleChange}
+                    className={styles.FormField}
                 />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
@@ -108,6 +108,8 @@ function TaskCreateForm(props) {
                     name="description"
                     value={description}
                     onChange={handleChange}
+                    className={styles.FormField}
+
                 />
             </Form.Group>
             {errors?.description?.map((message, idx) => (
@@ -122,6 +124,8 @@ function TaskCreateForm(props) {
                     name="duedate"
                     value={duedate}
                     onChange={handleChange}
+                    className={styles.FormField}
+
                 />
             </Form.Group>
             {errors?.date?.map((message, idx) => (
@@ -139,6 +143,8 @@ function TaskCreateForm(props) {
                     value={priority}
                     onChange={handleChange}
                     defaultValue={"placeholder"}
+                    className={styles.FormField}
+
                     >
                 <option value={"placeholder"}>Select Priority</option>
                 <option value="0">Low</option>
@@ -159,6 +165,8 @@ function TaskCreateForm(props) {
                     value={status}
                     onChange={handleChange}
                     defaultValue={"placeholder"}
+                    className={styles.FormField}
+
                 >
                 <option value={"placeholder"}>Select Status</option>
                 <option value="0">Todo</option>
@@ -181,6 +189,8 @@ function TaskCreateForm(props) {
         accept="attachment/*"
         onChange={handleChangeAttachment}
         ref={fileInput}
+        className={styles.FormField}
+
         />
         </Form.Group>
         {errors?.attachment?.map((message, idx) => (
@@ -194,6 +204,7 @@ function TaskCreateForm(props) {
         create task
       </Button>
     </Form>
+  </Container>
   );
 }
 
