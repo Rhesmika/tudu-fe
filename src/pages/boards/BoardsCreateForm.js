@@ -1,7 +1,7 @@
 import React, {useState } from "react"
 import { Alert, Button,  Container, Form,   } from "react-bootstrap"
-import styles from "../../styles/BoardsCreateForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -43,7 +43,7 @@ function BoardsCreateForm() {
 
 
     return (
-    <Container className={styles.Container}>
+    <Container className={appStyles.Container}>
         <h1> NEW BOARD</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Row>

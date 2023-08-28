@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/Boards.module.css";
+
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Board } from "./Board";
@@ -20,6 +20,8 @@ function BoardPage() {
     const [board, setBoard] = useState({ results: [] });
     const history = useHistory()
     const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+
     const [tasks, setTasks] = useState({ results: [] });
 
     useEffect(() => {
@@ -45,25 +47,31 @@ function BoardPage() {
     }, [id, history]); 
     
     return (
-        <Container className={appStyles.Container}>
+        <Container  className={appStyles.Container} >
             <Row>
-                <Col className={styles.Title}>
+                <Col>
                     <Board {...board.results[0]} setBoard={setBoard} boardPage />
                 </Col>
             </Row>
+
+
             <Row>
               {currentUser ? (
-                <TaskCreateForm
-                  board={id}
-                  setBoard={setBoard}
-                  setTasks={setTasks}
-                />
+                <Row>
+                  <TaskCreateForm
+                    profile_id={currentUser.profile_id}
+                    profileImage={profile_image}
+                    board={id}
+                    setBoard={setBoard}
+                    setTasks={setTasks}
+                  />
+                </Row>
               ) : tasks.results.length ? (
-                "tasks"
+                "Tasks"
               ) : null}
               {tasks.results.length ? (
-                tasks.results.map(task => (
-                  <Task key={tasks.id} {...tasks} />
+                tasks.results.map((task) => (
+                  <Task key={task.id} {...task} />
                 ))
               ) : currentUser ? (
                 <span>No tasks yet, why not create a task?!</span>

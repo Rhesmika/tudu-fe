@@ -2,7 +2,8 @@
 .Title{
     text-align: center;
 }
-.TaskNames{
+
+.TaskCount{
     background-color: #F0ECEF;
     border-radius: 25px;
     margin-top: 10px;
@@ -18,5 +19,9 @@
     text-align: center;
     color: white;
     text-align: center;
+}
+.Card{
+    border-radius: 25px;
+    margin-bottom: 20px;
 
 }

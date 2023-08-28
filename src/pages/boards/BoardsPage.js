@@ -11,7 +11,8 @@ import { Board } from "./Board";
 import Asset from "../../components/Asset.js";
 
 import appStyles from "../../App.module.css";
-// import styles from "../../styles/BoardsPage.module.css";
+import styles from "../../styles/BoardsPage.module.css";
+
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -55,32 +56,32 @@ function BoardsPage({ message, filter = "" }) {
       <Row>
         <h1>My Boards</h1>
       </Row>
+
+
       <Row>
+        <Col className="py-2 p-0 p-lg-2" lg={4}>
+          <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
+          <Form
+            className={styles.SearchBar}
+            onSubmit={(event) => event.preventDefault()}>
+            <Form.Control
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              type="text"
+              placeholder="Find Board"
+            />
+          </Form>
+        </Col>
+        <Col className="py-2 p-0 p-lg-2" lg={2}>
         <Link to={`/boards/create`}>
-          <i className="fa-solid fa-plus"></i><h4>New Board</h4>
+          <i className="fa-solid fa-plus"></i>
         </Link>
+        </Col>
       </Row>
 
 
       <Row>
-        <i className="fa-solid fa-magnifying-glass"></i><h4>Search</h4>
-        <Form
-          onSubmit={(event) => event.preventDefault()}>
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            placeholder="Search posts"
-          />
-        </Form>
-      </Row>
-
-
-
-      <Row className="h-100">
-        <Col className="py-2 p-0 p-lg-2" lg={8}>
-
-
+        <Col className={styles.Boards} lg={12}>
           {hasLoaded ? (
             <>
               {boards.results.length ? (
@@ -88,7 +89,10 @@ function BoardsPage({ message, filter = "" }) {
                   children={boards.results
                     .filter(board => board.is_owner)
                     .map((board) => (
-                    <Board key={board.id} {...board} setBoards={setBoards} />
+                    <Board
+                    key={board.id} {...board}
+                    setBoards={setBoards}
+                    />
                   ))}
                   dataLength={boards.results.length}
                   loader={<Asset spinner />}

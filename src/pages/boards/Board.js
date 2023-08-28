@@ -33,7 +33,7 @@ export const Board = (props) => {
     };
 
   return (
-    <Card>
+    <Card className={styles.Card}>
       <Card.Body>
         <div>
           <Link to={`/boards/${id}`} className={styles.Title}>
@@ -47,23 +47,13 @@ export const Board = (props) => {
             handleDelete={handleDelete}
             />
         </div>
-        <div>
-          
-          {/* <Link to={`/tasks/create`}>
-          <i className"fa-regular fa-square"></i>
-            Add task
-          </Link> */}
-        </div>
 
-        <div  className={styles.TaskNames}>
+        <div  className={styles.TaskCount}>
           <Link to={`/boards/${id}`}>
             <i className="fa-solid fa-square-check"></i>
           </Link>
           {tasks_count} tasks
         </div>
-        {/* <div  className={styles.Edit}>
-          {boardPage}
-        </div> */}
       </Card.Body> 
     </Card>
   )

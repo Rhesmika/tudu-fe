@@ -1,16 +1,17 @@
 import React, { useState, useRef } from "react";
 
 import Form from "react-bootstrap/Form";
+import Avatar from "../../components/Avatar";
 
-// import styles from "../../styles/TaskCreateEditForm.module.css";
+import styles from "../../styles/TaskCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
   const [errors, setErrors] = useState({});
-  const { board, setBoard, setTasks} = props;
+  const { board, setBoard, setTasks, profileImage, profile_id} = props;
 
   const fileInput = useRef(null);
 
@@ -80,7 +81,10 @@ function TaskCreateForm(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className={styles.Form}>
+                <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profileImage} />
+          </Link>
         <Form.Row>
             <Form.Group>
                 <Form.Control
