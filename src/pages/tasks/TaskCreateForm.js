@@ -177,8 +177,6 @@ function TaskCreateForm(props) {
         accept="attachment/*"
         onChange={handleChangeAttachment}
         ref={fileInput}
-        // value={attachment}
-        // value={undefined}
         />
         </Form.Group>
         {errors?.attachment?.map((message, idx) => (

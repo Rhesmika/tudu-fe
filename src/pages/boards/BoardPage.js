@@ -12,6 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Board } from "./Board";
 import TaskCreateForm from "../tasks/TaskCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Task from "../tasks/Task";
 
 
 function BoardPage() {
@@ -24,11 +25,13 @@ function BoardPage() {
     useEffect(() => {
         const handleMount = async () => {
           try {
-            const [{ data: board }] = await Promise.all([
+            const [{ data: board }, { data: tasks }] = await Promise.all([
               axiosReq.get(`/boards/${id}`),
+              axiosReq.get(`/tasks/?board=${id}`),
             ]);
             if(board.is_owner){
               setBoard({ results: [board] });
+              setTasks(tasks);
             } else {
               history.push("/boards/")
             }            
@@ -58,6 +61,15 @@ function BoardPage() {
               ) : tasks.results.length ? (
                 "tasks"
               ) : null}
+              {tasks.results.length ? (
+                tasks.results.map(task => (
+                  <Task key={tasks.id} {...tasks} />
+                ))
+              ) : currentUser ? (
+                <span>No tasks yet, why not create a task?!</span>
+              ) : (
+                <span>No tasks... yet</span>
+              )}
             </Row>
         </Container>
     );
