@@ -57,13 +57,13 @@ function BoardsPage({ message, filter = "" }) {
       </Row>
       <Row>
         <Link to={`/boards/create`}>
-          <i class="fa-solid fa-plus"></i><h4>New Board</h4>
+          <i className="fa-solid fa-plus"></i><h4>New Board</h4>
         </Link>
       </Row>
 
 
       <Row>
-        <i class="fa-solid fa-magnifying-glass"></i><h4>Search</h4>
+        <i className="fa-solid fa-magnifying-glass"></i><h4>Search</h4>
         <Form
           onSubmit={(event) => event.preventDefault()}>
           <Form.Control

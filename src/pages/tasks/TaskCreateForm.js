@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Form from "react-bootstrap/Form";
 
@@ -6,10 +6,13 @@ import Form from "react-bootstrap/Form";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
   const [errors, setErrors] = useState({});
   const { board, setBoard, setTasks} = props;
+
+  const fileInput = useRef(null);
 
   const [taskData, setTaskData] = useState({
     title: "",
@@ -20,6 +23,7 @@ function TaskCreateForm(props) {
     attachment: "",
   });
   const { title, description, duedate, priority, status, attachment,} = taskData;
+  const history = useHistory();
 
   const handleChange = (event) => {
     setTaskData({
@@ -33,23 +37,27 @@ function TaskCreateForm(props) {
       URL.revokeObjectURL(attachment);
       setTaskData({
         ...taskData,
-        file: URL.createObjectURL(event.target.files[0]),
+        attachment: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("duedate", duedate);
+    formData.append("priority", priority);
+    formData.append("status", status);
+    formData.append("board", board);
+    formData.append("attachment", fileInput.current.files[0]);
+
+
     try {
-      const { data } = await axiosRes.post("/tasks/", {
-        title,
-        description,
-        duedate,
-        priority,
-        status,
-        attachment,
-        board,
-      });
+      const { data } = await axiosRes.post("/tasks/", formData);
+      history.push(`/tasks/${data.id}`);
       setTasks((prevTasks) => ({
         ...prevTasks,
         results: [data, ...prevTasks.results],
@@ -164,11 +172,13 @@ function TaskCreateForm(props) {
         <Form.Row>
         <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Default file input example</Form.Label>
-        <Form.Control
-        type="file"
-        name="attachment"
-        value={attachment}
+        <Form.File
+        id="attachment-upload"
+        accept="attachment/*"
         onChange={handleChangeAttachment}
+        ref={fileInput}
+        // value={attachment}
+        // value={undefined}
         />
         </Form.Group>
         {errors?.attachment?.map((message, idx) => (

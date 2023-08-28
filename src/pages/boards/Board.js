@@ -50,14 +50,14 @@ export const Board = (props) => {
         <div>
           
           {/* <Link to={`/tasks/create`}>
-          <i class="fa-regular fa-square"></i>
+          <i className"fa-regular fa-square"></i>
             Add task
           </Link> */}
         </div>
 
         <div  className={styles.TaskNames}>
           <Link to={`/boards/${id}`}>
-            <i class="fa-solid fa-square-check"></i>
+            <i className="fa-solid fa-square-check"></i>
           </Link>
           {tasks_count} tasks
         </div>
