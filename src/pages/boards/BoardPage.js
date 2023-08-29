@@ -57,9 +57,9 @@ function BoardPage() {
             </Row>
 
 
-            <Row className={styles.form}>
+            <Container>
               {currentUser ? (
-                <Row className={styles.form}>
+                <Row>
                   <TaskCreateForm
                     profile_id={currentUser.profile_id}
                     profileImage={profile_image}
@@ -81,7 +81,7 @@ function BoardPage() {
               ) : (
                 <span>No tasks... yet</span>
               )}
-            </Row>
+            </Container>
         </Container>
     );
 }

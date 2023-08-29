@@ -7,7 +7,7 @@ import styles from "../../styles/TaskCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
-import { Alert, Button, Container } from "react-bootstrap";
+import { Alert, Button, Col, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
@@ -82,129 +82,126 @@ function TaskCreateForm(props) {
   };
 
   return (
-    <Container >
+    
     <Form onSubmit={handleSubmit} className={styles.Form}>
-        <Form.Row>
-            <Form.Group>
-                <Form.Control
-                    type="title"
-                    placeholder="Task"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                    className={styles.FormField}
-                />
-            </Form.Group>
-            {errors?.title?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
-                    {message}
-                    </Alert>
-                ))}
-
-            <Form.Group>
-                <Form.Control
-                    type="description"
-                    placeholder="description"
-                    name="description"
-                    value={description}
-                    onChange={handleChange}
-                    className={styles.FormField}
-
-                />
-            </Form.Group>
-            {errors?.description?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
-                    {message}
-                    </Alert>
-                ))}
-
-            <Form.Group>
-                <Form.Control
-                    type="date"
-                    name="duedate"
-                    value={duedate}
-                    onChange={handleChange}
-                    className={styles.FormField}
-
-                />
-            </Form.Group>
-            {errors?.date?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
-                    {message}
-                    </Alert>
-                ))}
-        </Form.Row>
-
-        <Form.Row>
-            <Form.Group controlId="priority">
-                <Form.Control
-                    as="select"
-                    name="priority"
-                    value={priority}
-                    onChange={handleChange}
-                    defaultValue={"placeholder"}
-                    className={styles.FormField}
-
-                    >
-                <option value={"placeholder"}>Select Priority</option>
-                <option value="0">Low</option>
-                <option value="1">Medium</option>
-                <option value="2">High</option>
-                </Form.Control>
-            </Form.Group>
-            {errors?.priority?.map((idx) => (
-                    <Alert variant="warning" key={idx}>
-                    Please select task priority
-                    </Alert>
-                ))}
- 
-            <Form.Group controlId="status">
-                <Form.Control
-                    as="select"
-                    name="status"
-                    value={status}
-                    onChange={handleChange}
-                    defaultValue={"placeholder"}
-                    className={styles.FormField}
-
-                >
-                <option value={"placeholder"}>Select Status</option>
-                <option value="0">Todo</option>
-                <option value="1">In progress</option>
-                <option value="2">Completed</option>
-                </Form.Control>
-            </Form.Group>
-            {errors?.status?.map((idx) => (
-                    <Alert variant="warning" key={idx}>
-                    Please select task status
-                    </Alert>
-                ))}
-        </Form.Row>
-
-        <Form.Row>
-        <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Default file input example</Form.Label>
-        <Form.File
-        id="attachment-upload"
-        accept="attachment/*"
-        onChange={handleChangeAttachment}
-        ref={fileInput}
-        className={styles.FormField}
-
+      <Row>
+      <Col xs={6}>
+      <Form.Group >
+        <Form.Control
+          type="title"
+          placeholder="Task"
+          name="title"
+          value={title}
+          onChange={handleChange}
+          className={styles.FormField}
         />
-        </Form.Group>
-        {errors?.attachment?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
-                    {message}
-                    </Alert>
-                ))}
-        </Form.Row>
+        {errors?.title?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+      </Form.Group>
 
-    <Button className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`} type="submit">
-        create task
+      <Form.Group>
+        <Form.Control
+          type="description"
+          placeholder="description"
+          name="description"
+          value={description}
+          onChange={handleChange}
+          className={styles.FormField}
+        />
+        {errors?.description?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+         ))}
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Control
+          type="date"
+          name="duedate"
+          value={duedate}
+          onChange={handleChange}
+          className={styles.FormField}
+        />
+        {errors?.date?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+      </Form.Group>
+      </Col>
+
+      <Col xs={6}>
+      <Form.Group>
+        <Form.File
+          id="attachment-upload"
+          accept="attachment/*"
+          onChange={handleChangeAttachment}
+          ref={fileInput}
+          className={styles.FormField}
+        />
+        {errors?.attachment?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Control
+          as="select"
+          name="priority"
+          value={priority}
+          onChange={handleChange}
+          defaultValue={"placeholder"}
+          className={styles.FormField}
+        >
+          <option value={"placeholder"}>Select Priority</option>
+          <option value="0">Low</option>
+          <option value="1">Medium</option>
+          <option value="2">High</option>
+        </Form.Control>
+        {errors?.priority?.map((idx) => (
+          <Alert variant="warning" key={idx}>
+            Please select task priority
+          </Alert>
+        ))}
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Control
+          as="select"
+          name="status"
+          value={status}
+          onChange={handleChange}
+          defaultValue={"placeholder"}
+          className={styles.FormField}
+        >
+          <option value={"placeholder"}>Select Status</option>
+          <option value="0">Todo</option>
+          <option value="1">In progress</option>
+          <option value="2">Completed</option>
+        </Form.Control>
+        {errors?.status?.map((idx) => (
+          <Alert variant="warning" key={idx}>
+            Please select task status
+          </Alert>
+        ))}
+      </Form.Group>
+      </Col>
+      </Row>
+      
+      <Row>
+      <Button 
+        className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`}
+        type="submit">
+        Create Task
       </Button>
+      </Row>
     </Form>
-  </Container>
   );
 }
 
