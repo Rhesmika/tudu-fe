@@ -6,8 +6,6 @@ import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/BoardsPage.module.css";
-
 
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";

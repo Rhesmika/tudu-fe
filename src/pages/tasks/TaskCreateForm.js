@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 
 import Form from "react-bootstrap/Form";
 
-import appStyles from "../../App.module.css";
 import styles from "../../styles/TaskCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
-import { Alert, Button, Col, Container, Row } from "react-bootstrap";
+import { Alert, Button, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
@@ -59,7 +58,7 @@ function TaskCreateForm(props) {
 
     try {
       const { data } = await axiosRes.post("/tasks/", formData);
-      history.push(`/tasks/${data.id}`);
+      history.push(`/boards/${data.id}`);
       setTasks((prevTasks) => ({
         ...prevTasks,
         results: [data, ...prevTasks.results],
