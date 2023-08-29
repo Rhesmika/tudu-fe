@@ -53,12 +53,13 @@ function TaskCreateForm(props) {
     formData.append("priority", priority);
     formData.append("status", status);
     formData.append("board", board);
-    formData.append("attachment", fileInput.current.files[0]);
-
+    if (attachment?.current?.files[0]) {
+      formData.append("attachment", fileInput?.current?.files[0]);
+    }
 
     try {
       const { data } = await axiosRes.post("/tasks/", formData);
-      history.push(`/boards/${data.id}`);
+      history.push(`/boards/${data.board.id}`);
       setTasks((prevTasks) => ({
         ...prevTasks,
         results: [data, ...prevTasks.results],
@@ -81,8 +82,9 @@ function TaskCreateForm(props) {
   };
 
   return (
-    
     <Form onSubmit={handleSubmit} className={styles.Form}>
+          <h1>New Task</h1>
+
       <Row>
       <Col xs={6}>
       <Form.Group >
