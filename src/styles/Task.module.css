@@ -1,14 +1,24 @@
-.Owner {
-    font-weight: bold;
-    color: #2142b2;
-    margin-right: 8px;
-  }
-  
-  .Date {
-    font-weight: lighter;
-    color: #c1c1c5;
-  }
+.Task {
+  margin: 10px;
+  border-radius: 25px;
+}
 
-.Data {
-  background-color: aqua;
+.Title {
+  font-weight: bold;
+  color: #3A4A56;
+  margin-right: 8px;
+}
+
+.Details {
+  margin-right: 8px;
+}
+  
+.Date {
+  font-weight: lighter;
+  color: #c1c1c5;
+}
+
+.Paperclip{
+  max-height: 30px;
+margin: 10px;
 }

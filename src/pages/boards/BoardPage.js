@@ -34,6 +34,7 @@ function BoardPage() {
             if(board.is_owner){
               setBoard({ results: [board] });
               setTasks(tasks);
+              console.log(tasks)
             } else {
               history.push("/boards/")
             }            
