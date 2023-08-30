@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { Card, Col, Image, Row } from "react-bootstrap";
 import styles from "../../styles/Task.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { MoreDropdown } from '../../components/MoreDropdown';
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import Upload from "../../assets/upload.png";
 import Uploaded from "../../assets/uploaded.png";
-
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Task = (props) => {
-  const { title, description, duedate, priority, status, attachment } = props;
+  const { id, title, description, duedate, priority, status, attachment } = props;
 
-  // const [attachment] = useState();
   const [message, setMessage] = useState();
 
   const attachmentCheck = (attachment) => {
@@ -29,10 +28,29 @@ const Task = (props) => {
   };
 
 
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/tasks/${id}/`);
+      window.location.reload()
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // const StatusNums = ["To Do", "In Progress", "Complete"];
+  // const PriorityNums = ["Low", "Medium", "High"];
+
+
   return (
     <Card className={styles.Task}>
       <Row>
       <Col xs={6}>
+        <div>
+          <MoreDropdown
+            // handleEdit={handleEdit}
+            handleDelete={handleDelete}
+            />
+        </div>
           <Card.Body>
             <Row className={styles.Title}>{title}</Row>
             <Row className={styles.Details}>{description}</Row>
@@ -55,10 +73,6 @@ const Task = (props) => {
               </button>
               <p>{message}</p>
             </div>
-
-
-          {/* <Col className={styles.Details}>{attachment}</Col> */}
-
 
           <Col className={styles.Details}>{priority}</Col>
           <Col className={styles.Details}>{status}</Col>
