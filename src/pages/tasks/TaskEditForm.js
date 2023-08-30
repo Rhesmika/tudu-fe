@@ -9,12 +9,11 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function TaskCreateForm(props) {
+function TaskEditForm(props) {
   const [errors, setErrors] = useState({});
+  const { board, setBoard, setTasks, setShowEditForm} = props;
 
   
-  const { board, setBoard, setTasks} = props;
-
   const fileInput = useRef(null);
 
   const [taskData, setTaskData] = useState({
@@ -28,12 +27,14 @@ function TaskCreateForm(props) {
   const { title, description, duedate, priority, status, attachment,} = taskData;
   const history = useHistory();
 
+
   const handleChange = (event) => {
     setTaskData({
       ...taskData,
       [event.target.name]: event.target.value,
     });
   };
+
 
   const handleChangeAttachment= (event) => {
     if (event.target.files.length) {
@@ -85,7 +86,7 @@ function TaskCreateForm(props) {
 
   return (
     <Form onSubmit={handleSubmit} className={styles.Form}>
-          <h3>Add Task</h3>
+          <h3>Edit Task</h3>
 
       <Row>
       <Col>
@@ -198,14 +199,25 @@ function TaskCreateForm(props) {
       </Row>
       
       <Row>
+        <Col>
       <Button 
         className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`}
         type="submit">
-        Create Task
+        Update 
       </Button>
+      </Col>
+      <Col>
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`}
+          onClick={() => setShowEditForm(false)}
+          type="button"
+        >
+        Cancel
+        </Button>
+        </Col>
       </Row>
     </Form>
   );
 }
 
-export default TaskCreateForm;
+export default TaskEditForm;

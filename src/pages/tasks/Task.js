@@ -7,9 +7,12 @@ import { MoreDropdown } from '../../components/MoreDropdown';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Uploaded from "../../assets/uploaded.png";
 import { axiosRes } from '../../api/axiosDefaults';
+import TaskEditForm from "../tasks/TaskEditForm";
+
 
 const Task = (props) => {
-  const { id, title, description, duedate, priority, status, attachment } = props;
+  const { id, title, description, duedate, priority, status, attachment, setTasks } = props;
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const [message, setMessage] = useState();
 
@@ -37,20 +40,29 @@ const Task = (props) => {
     }
   };
 
-  // const StatusNums = ["To Do", "In Progress", "Complete"];
-  // const PriorityNums = ["Low", "Medium", "High"];
+  const StatusNums = ["To Do", "In Progress", "Complete"];
+  const PriorityNums = ["Low", "Medium", "High"];
 
 
   return (
+    <>
+
     <Card className={styles.Task}>
+    {showEditForm ? (
+      <TaskEditForm
+      id={id}
+      title={title}
+      description={description}
+      duedate={duedate}
+      priority={priority}
+      status={status}
+      attachment={attachment}
+      setShowEditForm={setShowEditForm}
+      setTasks={setTasks}
+      />
+    ) : (
       <Row>
       <Col xs={6}>
-        <div>
-          <MoreDropdown
-            // handleEdit={handleEdit}
-            handleDelete={handleDelete}
-            />
-        </div>
           <Card.Body>
             <Row className={styles.Title}>{title}</Row>
             <Row className={styles.Details}>{description}</Row>
@@ -58,11 +70,8 @@ const Task = (props) => {
           </Card.Body>
       </Col>
 
-
       <Col xs={6}>
         <Card.Body>
-
-
             <div>
               <button
               onClick={() => attachmentCheck(attachment)}
@@ -74,12 +83,20 @@ const Task = (props) => {
               <p>{message}</p>
             </div>
 
-          <Col className={styles.Details}>{priority}</Col>
-          <Col className={styles.Details}>{status}</Col>
+          <Col className={styles.Details}>{StatusNums[priority]}</Col>
+          <Col className={styles.Details}>{PriorityNums[status]}</Col>
         </Card.Body>
       </Col>
       </Row>
+      )}
+          {!showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+        )}
     </Card>
+    </>
   );
 };
 
