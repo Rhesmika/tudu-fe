@@ -91,7 +91,7 @@ const Task = (props) => {
       )}
           {!showEditForm && (
           <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
+            handleEdit={(props) => setShowEditForm(true)}
             handleDelete={handleDelete}
           />
         )}

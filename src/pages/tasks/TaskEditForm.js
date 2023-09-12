@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/TaskCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -13,7 +13,6 @@ function TaskEditForm(props) {
   const [errors, setErrors] = useState({});
   const { board, setBoard, setTasks, setShowEditForm} = props;
 
-  
   const fileInput = useRef(null);
 
   const [taskData, setTaskData] = useState({
@@ -24,8 +23,27 @@ function TaskEditForm(props) {
     status: "",
     attachment: "",
   });
-  const { title, description, duedate, priority, status, attachment,} = taskData;
+  const { title, description, duedate, priority, status, attachment} = taskData;
   const history = useHistory();
+  const {id} = props;
+
+  useEffect(() => {
+    const handleMount = async () => {
+        try {
+            const { data } = await axiosReq.get(`/tasks/${id}/`);
+            const { title, description, duedate, priority, status, attachment, is_owner } = data;
+
+            is_owner ? setTaskData({ title, description, duedate, priority, status, attachment }) : history.push("/");
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    handleMount();
+    }, [history, id]);
+
+
+
 
 
   const handleChange = (event) => {
