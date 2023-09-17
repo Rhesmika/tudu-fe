@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskEditForm(props) {
   const [errors, setErrors] = useState({});
-  const { board, setBoard, setTasks, setShowEditForm} = props;
+  const { id, board, setShowEditForm,  setTasks} = props;
 
   const fileInput = useRef(null);
 
@@ -25,13 +25,12 @@ function TaskEditForm(props) {
   });
   const { title, description, duedate, priority, status, attachment} = taskData;
   const history = useHistory();
-  const {id} = props;
 
   useEffect(() => {
     const handleMount = async () => {
         try {
-            const { data } = await axiosReq.get(`/tasks/${id}/`);
-            const { title, description, duedate, priority, status, attachment, is_owner } = data;
+          const { data } = await axiosReq.get(`/tasks/${id}/`);
+          const { title, description, duedate, priority, status, attachment, is_owner } = data;
 
             is_owner ? setTaskData({ title, description, duedate, priority, status, attachment }) : history.push("/");
         } catch (err) {
@@ -40,11 +39,8 @@ function TaskEditForm(props) {
     };
 
     handleMount();
-    }, [history, id]);
-
-
-
-
+    }, [history, id]
+  );
 
   const handleChange = (event) => {
     setTaskData({
@@ -67,33 +63,31 @@ function TaskEditForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("title", title);
     formData.append("description", description);
     formData.append("duedate", duedate);
     formData.append("priority", priority);
     formData.append("status", status);
-    formData.append("board", board);
+    formData.append("board", board.results[0].id);
     if (attachment?.current?.files[0]) {
       formData.append("attachment", fileInput?.current?.files[0]);
     }
+    const boardId = board.results[0].id;
 
     try {
-      const { data } = await axiosRes.post("/tasks/", formData);
-      history.push(`/boards/${data.board.id}`);
+      await axiosReq.put(`/tasks/${id}/`, formData);
+      history.push(`/boards/${boardId}/`);
+
+      const { data } = await axiosRes.put("/tasks/", formData);
       setTasks((prevTasks) => ({
         ...prevTasks,
         results: [data, ...prevTasks.results],
       }));
-      setBoard((prevBoard) => ({
-        results: [
-          {
-            ...prevBoard.results[0],
-            tasks_count: prevBoard.results[0].tasks_count + 1,
-          },
-        ],
-      }));
+      
       setTaskData("");
+
+      setShowEditForm(false);
+
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -101,6 +95,8 @@ function TaskEditForm(props) {
       }  
     }
   };
+
+
 
   return (
     <Form onSubmit={handleSubmit} className={styles.Form}>

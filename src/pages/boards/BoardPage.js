@@ -73,7 +73,7 @@ function BoardPage() {
               ) : null}
               {tasks.results.length ? (
                 tasks.results.map((task) => (
-                  <Task key={task.id} {...task} />
+                  <Task key={task.id} {...task} board={board}/>
                 ))
               ) : currentUser ? (
                 <span>No tasks yet, why not create a task?!</span>

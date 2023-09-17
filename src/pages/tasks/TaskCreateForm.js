@@ -7,7 +7,6 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button, Col, Row } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskCreateForm(props) {
   const [errors, setErrors] = useState({});
@@ -24,7 +23,6 @@ function TaskCreateForm(props) {
     attachment: "",
   });
   const { title, description, duedate, priority, status, attachment,} = taskData;
-  const history = useHistory();
 
   const handleChange = (event) => {
     setTaskData({
@@ -59,7 +57,6 @@ function TaskCreateForm(props) {
 
     try {
       const { data } = await axiosRes.post("/tasks/", formData);
-      history.push(`/boards/${data.board.id}`);
       setTasks((prevTasks) => ({
         ...prevTasks,
         results: [data, ...prevTasks.results],

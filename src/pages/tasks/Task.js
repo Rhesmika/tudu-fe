@@ -43,7 +43,6 @@ const Task = (props) => {
   const StatusNums = ["To Do", "In Progress", "Complete"];
   const PriorityNums = ["Low", "Medium", "High"];
 
-
   return (
     <>
 
@@ -59,6 +58,7 @@ const Task = (props) => {
       attachment={attachment}
       setShowEditForm={setShowEditForm}
       setTasks={setTasks}
+      board={props.board}
       />
     ) : (
       <Row>
