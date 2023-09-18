@@ -86,7 +86,7 @@ function TaskCreateForm(props) {
       <Col>
       <Form.Group >
         <Form.Control
-          type="title"
+          type="text"
           placeholder="Task"
           name="title"
           value={title}
@@ -102,7 +102,7 @@ function TaskCreateForm(props) {
 
       <Form.Group>
         <Form.Control
-          type="description"
+          type="text"
           placeholder="description"
           name="description"
           value={description}
@@ -136,7 +136,7 @@ function TaskCreateForm(props) {
       <Form.Group>
         <Form.File
           id="attachment-upload"
-          accept="attachment/*"
+          // accept="attachment/*"
           onChange={handleChangeAttachment}
           ref={fileInput}
           className={styles.FormField}

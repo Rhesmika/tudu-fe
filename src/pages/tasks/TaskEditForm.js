@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskEditForm(props) {
   const [errors, setErrors] = useState({});
-  const { id, board, setShowEditForm,  setTasks} = props;
+  const { id, board, setShowEditForm, setTasks,} = props;
 
   const fileInput = useRef(null);
 
@@ -72,19 +72,24 @@ function TaskEditForm(props) {
     if (attachment?.current?.files[0]) {
       formData.append("attachment", fileInput?.current?.files[0]);
     }
-    const boardId = board.results[0].id;
+    // const boardId = board.results[0].id;
 
     try {
-      await axiosReq.put(`/tasks/${id}/`, formData);
-      history.push(`/boards/${boardId}/`);
+      const { data } = await axiosRes.put(`/tasks/${id}/`, formData);
+      setTaskData({...taskData, ...data});
 
-      const { data } = await axiosRes.put("/tasks/", formData);
-      setTasks((prevTasks) => ({
-        ...prevTasks,
-        results: [data, ...prevTasks.results],
-      }));
-      
-      setTaskData("");
+      window.location.reload()
+
+      // setTasks((prevTasks) => ({
+      //   ...prevTasks,
+      //   results: prevTasks.results.map()
+      // }));
+
+
+      // await axiosRes.put(`/tasks/${id}/`, formData);
+
+      // history.push(`/boards/${boardId}/`);
+      // setTaskData("");
 
       setShowEditForm(false);
 
@@ -106,7 +111,7 @@ function TaskEditForm(props) {
       <Col>
       <Form.Group >
         <Form.Control
-          type="title"
+          type="text"
           placeholder="Task"
           name="title"
           value={title}
@@ -122,7 +127,7 @@ function TaskEditForm(props) {
 
       <Form.Group>
         <Form.Control
-          type="description"
+          type="text"
           placeholder="description"
           name="description"
           value={description}
@@ -156,7 +161,7 @@ function TaskEditForm(props) {
       <Form.Group>
         <Form.File
           id="attachment-upload"
-          accept="attachment/*"
+          // accept="attachment/*"
           onChange={handleChangeAttachment}
           ref={fileInput}
           className={styles.FormField}

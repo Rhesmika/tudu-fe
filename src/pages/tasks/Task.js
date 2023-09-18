@@ -56,8 +56,8 @@ const Task = (props) => {
       priority={priority}
       status={status}
       attachment={attachment}
-      setShowEditForm={setShowEditForm}
       setTasks={setTasks}
+      setShowEditForm={setShowEditForm}
       board={props.board}
       />
     ) : (
