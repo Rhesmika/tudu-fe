@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TaskEditForm(props) {
   const [errors, setErrors] = useState({});
-  const { id, board, setShowEditForm, setTasks,} = props;
+  const { id, board, setShowEditForm,} = props;
 
   const fileInput = useRef(null);
 

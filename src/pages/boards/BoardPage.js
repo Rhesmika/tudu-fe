@@ -13,6 +13,9 @@ import { Board } from "./Board";
 import TaskCreateForm from "../tasks/TaskCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Task from "../tasks/Task";
+import InfiniteScroll from "react-infinite-scroll-component";
+// import { Spinner } from "react-bootstrap";
+import { fetchMoreData } from "../../utils/utils";
 
 
 function BoardPage() {
@@ -72,9 +75,19 @@ function BoardPage() {
                 "Tasks"
               ) : null}
               {tasks.results.length ? (
-                tasks.results.map((task) => (
-                  <Task key={task.id} {...task} board={board}/>
-                ))
+                <InfiniteScroll
+                children={tasks.results.map((task) => (
+                  <Task
+                  key={task.id}
+                  {...task}
+                  board={board}
+                  setTasks={setTasks}
+                  />
+                ))}
+                dataLength={tasks.results.length}
+                hasMore={!!tasks.next}
+                next={() => fetchMoreData(tasks, setTasks)}
+                />
               ) : currentUser ? (
                 <span>No tasks yet, why not create a task?!</span>
               ) : (
