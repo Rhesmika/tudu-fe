@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/BoardsPage.module.css";
+// import styles from "../../styles/BoardsPage.module.css";
 
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -17,7 +17,7 @@ import Task from "../tasks/Task";
 import InfiniteScroll from "react-infinite-scroll-component";
 // import { Spinner } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
-import { Form } from "react-bootstrap";
+// import { Form } from "react-bootstrap";
 
 
 function BoardPage({ filter = "" }) {
@@ -28,14 +28,13 @@ function BoardPage({ filter = "" }) {
     const profile_image = currentUser?.profile_image;
 
     const [tasks, setTasks] = useState({ results: [] });
-    const [query, setQuery] = useState("");
+    // const [query, setQuery] = useState("");
 
     useEffect(() => {
         const handleMount = async () => {
           try {
             const [{ data: board }, { data: tasks }] = await Promise.all([
               axiosReq.get(`/boards/${id}`),
-              // axiosReq.get(`/boards/${id}${filter}search=${query}`),
               axiosReq.get(`/tasks/?board=${id}`),
             ]);
             if(board.is_owner){
@@ -52,7 +51,7 @@ function BoardPage({ filter = "" }) {
         };
 
         handleMount();
-    }, [id, history, filter, query]); 
+    }, [id, history, filter, ]); 
     
     return (
         <Container  className={appStyles.Container} >
@@ -79,7 +78,7 @@ function BoardPage({ filter = "" }) {
                 "Tasks"
               ) : null}
               
-              <Row>
+              {/* <Row>
                 <Col className="py-2 p-0 p-lg-2" lg={8}>
                   <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
                   <Form
@@ -87,15 +86,15 @@ function BoardPage({ filter = "" }) {
                     onSubmit={(event) => event.preventDefault()}
                     >
                     <Form.Control
-                      value={query}
-                      onChange={(event) => setQuery(event.target.value)}
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
                       type="text"
                       className="mr-sm-2"
                       placeholder="Search tasks"
                     />
                   </Form>
                 </Col>
-              </Row>
+              </Row> */}
 
               {tasks.results.length ? (
                 <InfiniteScroll

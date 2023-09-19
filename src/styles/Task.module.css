@@ -1,6 +1,7 @@
 .Task {
   margin: 10px;
   border-radius: 25px;
+  padding: 10px;
 }
 
 .Title {
@@ -13,12 +14,8 @@
   margin-right: 8px;
 }
   
-.Date {
-  font-weight: lighter;
-  color: #c1c1c5;
-}
 
 .Paperclip{
   max-height: 30px;
-margin: 10px;
+margin-left: 10px;
 }

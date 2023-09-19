@@ -26,7 +26,7 @@ const Task = (props) => {
       );
     }
     else {
-      setMessage('No attachment');
+      setMessage('Attachment not currently available');
     }
   };
 
@@ -47,6 +47,12 @@ const Task = (props) => {
     <>
 
     <Card className={styles.Task}>
+    {!showEditForm && (
+          <MoreDropdown
+            handleEdit={(props) => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+    )}
     {showEditForm ? (
       <TaskEditForm
       id={id}
@@ -64,14 +70,8 @@ const Task = (props) => {
       <Row>
       <Col xs={6}>
           <Card.Body>
-            <Row className={styles.Title}>{title}</Row>
+            <Row className={styles.Title}><h4>{title}</h4></Row>
             <Row className={styles.Details}>{description}</Row>
-            <Row className={styles.Date}>{duedate}</Row>
-          </Card.Body>
-      </Col>
-
-      <Col xs={6}>
-        <Card.Body>
             <div>
               <button
               onClick={() => attachmentCheck(attachment)}
@@ -82,19 +82,21 @@ const Task = (props) => {
               </button>
               <p>{message}</p>
             </div>
+          </Card.Body>
+      </Col>
 
-          <Col className={styles.Details}>{StatusNums[priority]}</Col>
-          <Col className={styles.Details}>{PriorityNums[status]}</Col>
+      <Col xs={6}>
+        <Card.Body>
+
+
+          <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
+          <Col className={styles.Details}><b>Priority: </b> {PriorityNums[status]}</Col>
+          <Col className={styles.Details}><b>Status: </b>{StatusNums[priority]}</Col>
         </Card.Body>
       </Col>
       </Row>
       )}
-          {!showEditForm && (
-          <MoreDropdown
-            handleEdit={(props) => setShowEditForm(true)}
-            handleDelete={handleDelete}
-          />
-        )}
+
     </Card>
     </>
   );

@@ -72,7 +72,6 @@ function TaskEditForm(props) {
     if (attachment?.current?.files[0]) {
       formData.append("attachment", fileInput?.current?.files[0]);
     }
-    // const boardId = board.results[0].id;
 
     try {
       const { data } = await axiosRes.put(`/tasks/${id}/`, formData);
@@ -152,10 +151,12 @@ function TaskEditForm(props) {
       <Form.Group>
         <Form.File
           id="attachment-upload"
-          // accept="attachment/*"
+          accept="attachment/*"
           onChange={handleChangeAttachment}
           ref={fileInput}
           className={styles.FormField}
+          value={attachment}
+
         />
         {errors?.attachment?.map((message, idx) => (
           <Alert variant="warning" key={idx}>

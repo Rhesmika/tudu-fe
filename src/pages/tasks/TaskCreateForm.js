@@ -22,7 +22,7 @@ function TaskCreateForm(props) {
     status: "",
     attachment: "",
   });
-  const { title, description, duedate, priority, status, attachment,} = taskData;
+  const { title, description, duedate, priority, status, attachment} = taskData;
 
   const handleChange = (event) => {
     setTaskData({
@@ -51,8 +51,8 @@ function TaskCreateForm(props) {
     formData.append("priority", priority);
     formData.append("status", status);
     formData.append("board", board);
-    if (attachment?.current?.files[0]) {
-      formData.append("attachment", fileInput?.current?.files[0]);
+    if (fileInput?.current?.files[0]) {
+      formData.append("attachment", fileInput.current.files[0]);
     }
 
     try {
@@ -70,6 +70,7 @@ function TaskCreateForm(props) {
         ],
       }));
       setTaskData("");
+      console.log(data)
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -136,7 +137,7 @@ function TaskCreateForm(props) {
       <Form.Group>
         <Form.File
           id="attachment-upload"
-          // accept="attachment/*"
+          accept="image/*"
           onChange={handleChangeAttachment}
           ref={fileInput}
           className={styles.FormField}
