@@ -80,16 +80,7 @@ function TaskEditForm(props) {
 
       window.location.reload()
 
-      // setTasks((prevTasks) => ({
-      //   ...prevTasks,
-      //   results: prevTasks.results.map()
-      // }));
 
-
-      // await axiosRes.put(`/tasks/${id}/`, formData);
-
-      // history.push(`/boards/${boardId}/`);
-      // setTaskData("");
 
       setShowEditForm(false);
 
