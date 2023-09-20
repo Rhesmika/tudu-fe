@@ -69,7 +69,7 @@ function TaskEditForm(props) {
     formData.append("priority", priority);
     formData.append("status", status);
     formData.append("board", board.results[0].id);
-    if (attachment?.current?.files[0]) {
+    if (fileInput?.current?.files[0]) {
       formData.append("attachment", fileInput?.current?.files[0]);
     }
 
@@ -151,11 +151,10 @@ function TaskEditForm(props) {
       <Form.Group>
         <Form.File
           id="attachment-upload"
-          accept="attachment/*"
+          accept="image/*"
           onChange={handleChangeAttachment}
           ref={fileInput}
           className={styles.FormField}
-          value={attachment}
 
         />
         {errors?.attachment?.map((message, idx) => (

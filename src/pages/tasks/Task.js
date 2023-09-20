@@ -20,7 +20,7 @@ const Task = (props) => {
     console.log(attachment)
     if ( attachment !== null) {
       setMessage(
-        <Link>
+        <Link >
         <p>{attachment}</p>
         </Link>
       );
