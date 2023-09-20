@@ -35,15 +35,17 @@ export const Board = (props) => {
   return (
     <Card className={styles.Card}>
       <Card.Body>
-        <div>
+        <div
+        className={styles.More}>
           <MoreDropdown
             handleEdit={handleEdit}
             handleDelete={handleDelete}
+
             />
         </div>
         <div>
           <Link to={`/boards/${id}`} className={styles.Title}>
-            {name && <Card.Title>{name}</Card.Title>
+            {name && <Card.Title><h3>{name}</h3></Card.Title>
             }
           </Link>
         </div>

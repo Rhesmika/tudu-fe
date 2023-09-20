@@ -1,6 +1,7 @@
 
 .Title{
     text-align: center;
+    padding: 10px;
 }
 
 .TaskCount{
@@ -24,4 +25,8 @@
     border-radius: 25px;
     margin-bottom: 20px;
 
+}
+
+.More{
+    float: right;
 }

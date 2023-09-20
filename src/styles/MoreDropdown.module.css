@@ -5,7 +5,11 @@
   }
   
   .Absolute {
-    position: absolute;
+    float: absolute;
     right: 0;
     z-index: 99;
+  }
+
+  .More{
+    float: right;
   }
