@@ -50,13 +50,12 @@ export const Board = (props) => {
           </Link>
         </div>
 
-
+        <Link to={`/boards/${id}`}>
         <div  className={styles.TaskCount}>
-          <Link to={`/boards/${id}`}>
             <i className="fa-solid fa-square-check"></i>
-          </Link>
           {tasks_count} tasks
         </div>
+        </Link>
       </Card.Body> 
     </Card>
   )

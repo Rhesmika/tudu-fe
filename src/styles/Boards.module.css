@@ -1,14 +1,18 @@
 
 .Title{
+    padding: 5px;
     text-align: center;
-    padding: 10px;
 }
+
 
 .TaskCount{
     background-color: #F0ECEF;
     border-radius: 25px;
     margin-top: 10px;
     padding: 10px;
+    color: #3A4A56;
+    text-align: center;
+
 }   
 .Edit{
     background-color: #EFD6B4;

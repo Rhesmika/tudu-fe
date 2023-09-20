@@ -52,9 +52,11 @@ function BoardsPage({ message, filter = "" }) {
   }, [filter, query, pathname]);
 
   return (
-    <Container>
+    <Container  className={appStyles.Container}>
       <Row>
-        <h1>My Boards</h1>
+        <h1
+        className={styles.Header}
+        >My Boards</h1>
       </Row>
 
 

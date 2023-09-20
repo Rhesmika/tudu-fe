@@ -1,8 +1,8 @@
 .App {
   font-family: 'Montserrat', sans-serif;
-  background-color: #3A4A56;
+  background-color: #FFFFFF;
   min-height: 100vh;
-  color: #FFFFFF;
+  color: #3A4A56;
   }
   
   .Main {
@@ -10,10 +10,11 @@
   }
   
   .Container {
-    background-color: #FFFFFF;
+    background-color: #3A4A56;
     border-radius: 25px;
     padding: 30px;
-    color: #3A4A56;
+    margin: 20px;
+    /* color: #FFFFFF; */
  }
   .Content {
     background-color: #FFFFFF;
