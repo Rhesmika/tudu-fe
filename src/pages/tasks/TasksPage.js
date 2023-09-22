@@ -78,6 +78,7 @@ function TasksPage({ message, filter = ""}) {
                     <Task
                     key={task.id} {...task}
                     setTasks={setTasks}
+                    
                     />
                   ))}
                   dataLength={tasks.results.length}
