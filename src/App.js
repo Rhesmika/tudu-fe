@@ -11,6 +11,7 @@ import TaskCreateForm from "./pages/tasks/TaskCreateForm";
 import BoardsPage from "./pages/boards/BoardsPage";
 import BoardEditForm from "./pages/boards/BoardEditForm";
 import TaskEditForm from "./pages/tasks/TaskEditForm";
+import TasksPage from "./pages/tasks/TasksPage";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
 
           <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
           <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
+          <Route exact path="/tasks" render={() => <TasksPage />} />
 
 
           <Route render={() => <p>Page not found!</p>} />
