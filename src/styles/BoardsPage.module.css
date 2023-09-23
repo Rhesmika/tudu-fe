@@ -19,15 +19,11 @@
     color: #F2B55A;
   }
 
-.AddBoard{
-  display: flex; 
-}
 
 
 .AddBoardText{
   display: inline-block;
   color: #F2B55A;
-  opacity: 0%;
 }
 
 

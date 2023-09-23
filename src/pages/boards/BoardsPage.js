@@ -51,6 +51,14 @@ function BoardsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   return (
     <Container  className={appStyles.Container}>
       <Row className={appStyles.Row}>
@@ -74,12 +82,25 @@ function BoardsPage({ message, filter = "" }) {
             />
           </Form>
         </div>
-        <div class="grid">
+
+
+
+        <div
+        class="grid" className={styles.AddBoard}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        >
         <Link to={`/boards/create`}>
           <i className="fa-solid fa-plus" ></i>
-          <h5 className={styles.AddBoardText} >Add New Board</h5>
-        </Link>
+        </Link>s
+          {isHovering && (
+            <Link to={`/boards/create`}>
+              <h5 className={styles.AddBoardText} >Add New Board</h5>
+            </Link>
+        )}
         </div>
+
+
 
       </Row>
 
@@ -124,7 +145,6 @@ function BoardsPage({ message, filter = "" }) {
       <div class="grid">
         <Link to={`/boards/create`}>
           <i className="fa-solid fa-plus" ></i>
-          <h5 className={styles.AddBoardText} >Add New Board</h5>
         </Link>
         </div>
     </Container>

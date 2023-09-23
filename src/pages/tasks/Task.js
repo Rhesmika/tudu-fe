@@ -20,7 +20,7 @@ const Task = (props) => {
     if ( attachment !== null) {
       setMessage(
         <Link >
-        <p>{attachment}</p>
+        {attachment}
         </Link>
       );
     }
@@ -77,25 +77,23 @@ const Task = (props) => {
       <Col xs={6}>
         <Card.Body>
 
-
           <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
           <Col className={styles.Details}><b>Priority: </b> {PriorityNums[status]}</Col>
           <Col className={styles.Details}><b>Status: </b>{StatusNums[priority]}</Col>
+        </Card.Body>
+      </Col>
+      </Row>
+      )}
             <div>
               <button
               onClick={() => attachmentCheck(attachment)}
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light} ${styles.Attachment}`}
               >
-              See attachment
+              See Attachment Link
               <Image src={Uploaded} className={styles.Paperclip}/>
               </button>
               <p>{message}</p>
             </div>
-        </Card.Body>
-      </Col>
-      </Row>
-      )}
-
     </Card>
     </>
   );
