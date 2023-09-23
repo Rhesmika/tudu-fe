@@ -60,7 +60,9 @@ function BoardPage({ filter = "" }) {
     return (
         <Container  className={appStyles.Container} >
             <Row>
+                <Col>
                     <Board {...board.results[0]} setBoard={setBoard} boardPage />
+                </Col>
             </Row>
 
 
@@ -80,7 +82,6 @@ function BoardPage({ filter = "" }) {
                 "Tasks"
               ) : null}
               
-              <Row>
                 <Col className="py-2 p-0 p-lg-2" lg={8}>
                   <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
                   <Form
@@ -96,7 +97,6 @@ function BoardPage({ filter = "" }) {
                     />
                   </Form>
                 </Col>
-              </Row>
 
               {tasks.results.length ? (
                 <InfiniteScroll

@@ -10,6 +10,8 @@
     position: absolute;
     font-size: 1.2rem;
     padding:10px
+    
+    
   }
   
 .SearchIcon:hover {
@@ -28,11 +30,6 @@
   opacity: 0%;
 }
 
-.AddBoardText:hover{
-  opacity: 100%;
-  transition: opacity .25s ease;
-
-}
 
 .Form{
   margin-left: 15px;
@@ -41,3 +38,4 @@
 .Header{
   color: #FFFFFF;
 }
+

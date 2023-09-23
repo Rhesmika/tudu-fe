@@ -17,7 +17,6 @@ const Task = (props) => {
   const [message, setMessage] = useState();
 
   const attachmentCheck = (attachment) => {
-    console.log(attachment)
     if ( attachment !== null) {
       setMessage(
         <Link >
@@ -26,7 +25,7 @@ const Task = (props) => {
       );
     }
     else {
-      setMessage('Attachment not currently available');
+      setMessage('No Attchament');
     }
   };
 
@@ -72,16 +71,6 @@ const Task = (props) => {
           <Card.Body>
             <Row className={styles.Title}><h5>{title}</h5></Row>
             <Row className={styles.Details}>{description}</Row>
-            <div>
-              <button
-              onClick={() => attachmentCheck(attachment)}
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light}`}
-              >
-              See attachment
-              <Image src={Uploaded} className={styles.Paperclip}/>
-              </button>
-              <p>{message}</p>
-            </div>
           </Card.Body>
       </Col>
 
@@ -92,6 +81,16 @@ const Task = (props) => {
           <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
           <Col className={styles.Details}><b>Priority: </b> {PriorityNums[status]}</Col>
           <Col className={styles.Details}><b>Status: </b>{StatusNums[priority]}</Col>
+            <div>
+              <button
+              onClick={() => attachmentCheck(attachment)}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light} ${styles.Attachment}`}
+              >
+              See attachment
+              <Image src={Uploaded} className={styles.Paperclip}/>
+              </button>
+              <p>{message}</p>
+            </div>
         </Card.Body>
       </Col>
       </Row>

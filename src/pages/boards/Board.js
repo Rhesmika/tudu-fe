@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Boards.module.css";
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -43,19 +42,21 @@ export const Board = (props) => {
 
             />
         </div>
-        <div>
-          <Link to={`/boards/${id}`} className={styles.Title}>
-            {name && <Card.Title><h3>{name}</h3></Card.Title>
-            }
-          </Link>
-        </div>
 
+        
         <Link to={`/boards/${id}`}>
-        <div  className={styles.TaskCount}>
-            <i className="fa-solid fa-square-check"></i>
-          {tasks_count} tasks
-        </div>
+          <div  className={styles.Title}>
+              {name && <Card.Title><h3>{name}</h3></Card.Title>}
+          </div>
+
+
+          <div  className={styles.TaskCount}>
+              <i className="fa-solid fa-square-check"></i>
+            {tasks_count} tasks
+          </div>
         </Link>
+
+
       </Card.Body> 
     </Card>
   )

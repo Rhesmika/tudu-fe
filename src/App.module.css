@@ -11,6 +11,7 @@
 
   .Main {
     padding-top: 100px;
+    padding-bottom: 40px;
   }
   
   .Container {
@@ -69,7 +70,6 @@
   i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #2142b2;
   }
   
   figure {

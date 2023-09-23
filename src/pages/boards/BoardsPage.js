@@ -123,6 +123,13 @@ function BoardsPage({ message, filter = "" }) {
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         </Col>
       </Row>
+
+      <div class="grid">
+        <Link to={`/boards/create`}>
+          <i className="fa-solid fa-plus" ></i>
+          <h5 className={styles.AddBoardText} >Add New Board</h5>
+        </Link>
+        </div>
     </Container>
   );
 }

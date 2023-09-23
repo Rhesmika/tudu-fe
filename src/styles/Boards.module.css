@@ -3,6 +3,9 @@
     padding: 5px;
     text-align: center;
 }
+.Title:hover{
+    color: #F2B55A;
+}
 
 
 .TaskCount{

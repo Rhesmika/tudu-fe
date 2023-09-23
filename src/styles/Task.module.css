@@ -1,7 +1,7 @@
 .Task {
   margin: 10px;
   border-radius: 25px;
-  padding: 10px;
+  padding: 30px;
 }
 
 .Title {
@@ -14,7 +14,9 @@
   margin-right: 8px;
 }
   
-
+.Attachment{
+  margin-top: 10px;
+}
 .Paperclip{
   max-height: 30px;
 margin-left: 10px;
