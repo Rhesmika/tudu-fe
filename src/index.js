@@ -8,13 +8,11 @@ import { CurrentUserProvider } from './contexts/CurrentUserContext';
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <App />
       </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 
