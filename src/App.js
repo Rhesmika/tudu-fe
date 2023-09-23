@@ -13,6 +13,7 @@ import BoardEditForm from "./pages/boards/BoardEditForm";
 import TaskEditForm from "./pages/tasks/TaskEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
 import Home from "./pages/Home";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
           <Route exact path="/tasks" render={() => <TasksPage />} />
 
 
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
         </div>
