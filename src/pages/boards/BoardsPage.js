@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-// import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -20,9 +18,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-
+import { useRedirect } from "../../hooks/useRedirect";
 
 function BoardsPage({ message, filter = "" }) {
+  useRedirect("loggedOut");
   const [boards, setBoards] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -66,8 +65,6 @@ function BoardsPage({ message, filter = "" }) {
         className={styles.Header}
         >My Boards</h1>
       </Row>
-
-
       <Row className={appStyles.Row}>
         <div>
           <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
@@ -82,9 +79,6 @@ function BoardsPage({ message, filter = "" }) {
             />
           </Form>
         </div>
-
-
-
         <div
         class="grid" className={styles.AddBoard}
         onMouseOver={handleMouseOver}
@@ -99,9 +93,6 @@ function BoardsPage({ message, filter = "" }) {
             </Link>
         )}
         </div>
-
-
-
       </Row>
 
 

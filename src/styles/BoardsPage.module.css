@@ -36,3 +36,10 @@
 
 }
 
+.Sortby{
+  background-color: aqua;
+  display: inline-block;
+}
+.SortTitle{
+  color: white;
+}

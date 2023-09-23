@@ -6,9 +6,12 @@ import styles from "../../styles/BoardForm.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
 
 
 function BoardsCreateForm() {
+  useRedirect("loggedOut");
+
   const [errors, setErrors] = useState({});
 
   const [boardData, setBoardData] = useState({

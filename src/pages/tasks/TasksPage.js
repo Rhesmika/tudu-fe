@@ -14,8 +14,11 @@ import Asset from "../../components/Asset.js";
 import { fetchMoreData } from "../../utils/utils";
 import TaskInfo from "../../components/TaskInfo";
 
+import { useRedirect } from "../../hooks/useRedirect";
 
 function TasksPage({ message, filter = ""}) {
+  useRedirect("loggedOut");
+
     const [tasks, setTasks] = useState({ results: [] });
     const [query, setQuery] = useState("");
     const [hasLoaded, setHasLoaded] = useState(false);

@@ -7,8 +7,12 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { Alert, Button, Col, Row } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
+
 
 function TaskCreateForm(props) {
+  useRedirect("loggedOut");
+
   const [errors, setErrors] = useState({});
   const { board, setBoard, setTasks} = props;
 
