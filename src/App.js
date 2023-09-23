@@ -12,6 +12,7 @@ import BoardsPage from "./pages/boards/BoardsPage";
 import BoardEditForm from "./pages/boards/BoardEditForm";
 import TaskEditForm from "./pages/tasks/TaskEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() =>  <Home />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           
