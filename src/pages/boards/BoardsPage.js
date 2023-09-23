@@ -61,9 +61,7 @@ function BoardsPage({ message, filter = "" }) {
 
 
       <Row className={appStyles.Row}>
-
-
-        <Col  class="col-4">
+        <div>
           <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
           <Form
             className={styles.SearchBar}
@@ -75,8 +73,7 @@ function BoardsPage({ message, filter = "" }) {
               placeholder="Find Board"
             />
           </Form>
-        </Col>
-
+        </div>
         <div class="grid">
         <Link to={`/boards/create`}>
           <i className="fa-solid fa-plus" ></i>
@@ -88,7 +85,7 @@ function BoardsPage({ message, filter = "" }) {
 
 
       <Row>
-        <Col className={styles.Boards} lg={12}>
+        <Col lg={12}>
           {hasLoaded ? (
             <>
               {boards.results.length ? (

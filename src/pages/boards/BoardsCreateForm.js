@@ -2,8 +2,10 @@ import React, {useState } from "react"
 import { Alert, Button,  Container, Form,   } from "react-bootstrap"
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/BoardForm.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function BoardsCreateForm() {
@@ -44,7 +46,8 @@ function BoardsCreateForm() {
 
     return (
     <Container className={appStyles.Container}>
-        <h1> NEW BOARD</h1>
+        <h1 className={styles.Formtitle}>
+          New Board</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Row>
             <Form.Group controlId="name">
@@ -63,11 +66,14 @@ function BoardsCreateForm() {
                     </Alert>
                 ))}
         </Form.Row>
-
-
+        
         <Button className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`} type="submit">
         Create
         </Button>
+        <Link to="/boards" className={`${btnStyles.Button} ${btnStyles.Light} ${btnStyles.Wide}`} type="submit">
+        Cancel
+        </Link>
+
       </Form>
     </Container>
   );

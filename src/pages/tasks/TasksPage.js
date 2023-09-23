@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/BoardsPage.module.css";
+import styles from "../../styles/TasksPage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation } from "react-router";
 
@@ -47,13 +47,14 @@ function TasksPage({ message, filter = ""}) {
 
   return (
     <Container  className={appStyles.Container}>
-      <Row>
+      <Row className={appStyles.Row}>
         <h1
         className={styles.Header}
         >My Tasks</h1>
       </Row>
-      <Row>
-        <Col className="py-2 p-0 p-lg-2" lg={4}>
+
+      <Row className={appStyles.Row}>
+        <div>
           <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
           <Form
             className={styles.SearchBar}
@@ -65,10 +66,10 @@ function TasksPage({ message, filter = ""}) {
               placeholder="Find Task"
             />
           </Form>
-        </Col>
+        </div>
       </Row>
       <Row>
-        <Col className={styles.Boards} lg={12}>
+        <Col  lg={12}>
           {hasLoaded ? (
             <>
               {tasks.results.length ? (

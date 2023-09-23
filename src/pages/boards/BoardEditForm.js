@@ -1,7 +1,8 @@
 import React, {useEffect, useState } from "react"
 import { Alert, Button,  Container, Form,   } from "react-bootstrap"
-import styles from "../../styles/BoardsCreateForm.module.css";
+import appStyles from "../../App.module.css"
 import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/BoardForm.module.css";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -62,8 +63,8 @@ function BoardEditForm() {
 
 
     return (
-    <Container className={styles.Container}>
-        <h1>Edit Board</h1>
+    <Container className={appStyles.Container}>
+        <h1 className={styles.Formtitle}>Edit Board</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Row>
             <Form.Group controlId="name">
@@ -83,13 +84,15 @@ function BoardEditForm() {
                 ))}
         </Form.Row>
 
+                  
 
         <Button className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`} type="submit">
         Edit
         </Button>
-        <Link to={`/boards/${id}`} className={`${btnStyles.Button} ${btnStyles.Orange} ${btnStyles.Wide}`} type="submit">
+        <Link to={`/boards/${id}`} className={`${btnStyles.Button} ${btnStyles.Light} ${btnStyles.Wide}`} type="submit">
         Cancel
         </Link>
+
       </Form>
     </Container>
   );

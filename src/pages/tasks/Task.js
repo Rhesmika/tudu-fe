@@ -69,7 +69,7 @@ const Task = (props) => {
       <Row>
       <Col xs={6}>
           <Card.Body>
-            <Row className={styles.Title}><h5>{title}</h5></Row>
+            <Row className={styles.Title}><h4>{title}</h4></Row>
             <Row className={styles.Details}>{description}</Row>
           </Card.Body>
       </Col>
