@@ -4,7 +4,11 @@
   min-height: 100vh;
   color: #3A4A56;
   }
-  
+
+  .Row{
+    padding:0px 7px 20px 15px;
+  }
+
   .Main {
     padding-top: 100px;
   }

@@ -15,7 +15,6 @@ import TaskCreateForm from "../tasks/TaskCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Task from "../tasks/Task"
 import InfiniteScroll from "react-infinite-scroll-component";
-// import { Spinner } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";
 import { Form } from "react-bootstrap";
 
@@ -46,7 +45,6 @@ function BoardPage({ filter = "" }) {
             if(board.is_owner){
               setBoard({ results: [board] });
               setTasks(tasks);
-              // console.log(tasks)
             } else {
               history.push("/boards/")
             }            
@@ -62,9 +60,7 @@ function BoardPage({ filter = "" }) {
     return (
         <Container  className={appStyles.Container} >
             <Row>
-                <Col>
                     <Board {...board.results[0]} setBoard={setBoard} boardPage />
-                </Col>
             </Row>
 
 

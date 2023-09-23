@@ -20,7 +20,6 @@ function TasksPage({ message, filter = ""}) {
     const [query, setQuery] = useState("");
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
-    // const [showEditForm, setShowEditForm] = useState(false);
 
 
     useEffect(() => {
@@ -81,7 +80,6 @@ function TasksPage({ message, filter = ""}) {
                     <TaskInfo
                     key={task.id} {...task}
                     setTasks={setTasks}
-                    // handleEdit={(props) => setShowEditForm(false)}
                     />
                   ))}
                   dataLength={tasks.results.length}

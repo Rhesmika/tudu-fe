@@ -1,15 +1,15 @@
+.Search{
+}
 .SearchBar input {
     border-radius: 20px;
     color: #3A4A56;
     padding-left: 40px;
-    margin-bottom: 16px;
   }
   
 .SearchIcon {
     position: absolute;
     font-size: 1.2rem;
-    padding: 9px;
-    padding-left: 15px;
+    padding:10px
   }
   
 .SearchIcon:hover {
@@ -17,9 +17,22 @@
     color: #F2B55A;
   }
 
-.SearchBar{
-    padding-left: 5px;
-  }
+.AddBoard{
+  display: flex; 
+}
+
+
+.AddBoardText{
+  display: inline-block;
+  color: #F2B55A;
+  opacity: 0%;
+}
+
+.AddBoardText:hover{
+  opacity: 100%;
+  transition: opacity .25s ease;
+
+}
 
 .Form{
   margin-left: 15px;
@@ -27,5 +40,4 @@
 }
 .Header{
   color: #FFFFFF;
-  padding-left: 15px; 
 }

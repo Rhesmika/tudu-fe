@@ -53,15 +53,17 @@ function BoardsPage({ message, filter = "" }) {
 
   return (
     <Container  className={appStyles.Container}>
-      <Row>
+      <Row className={appStyles.Row}>
         <h1
         className={styles.Header}
         >My Boards</h1>
       </Row>
 
 
-      <Row>
-        <Col className="py-2 p-0 p-lg-2" lg={4}>
+      <Row className={appStyles.Row}>
+
+
+        <Col  class="col-4">
           <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
           <Form
             className={styles.SearchBar}
@@ -74,11 +76,14 @@ function BoardsPage({ message, filter = "" }) {
             />
           </Form>
         </Col>
-        <Col className="py-2 p-0 p-lg-2" lg={2}>
+
+        <div class="grid">
         <Link to={`/boards/create`}>
-          <i className="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus" ></i>
+          <h5 className={styles.AddBoardText} >Add New Board</h5>
         </Link>
-        </Col>
+        </div>
+
       </Row>
 
 
