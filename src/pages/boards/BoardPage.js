@@ -13,7 +13,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Board } from "./Board";
 import TaskCreateForm from "../tasks/TaskCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Task from "../tasks/Task";
+import Task from "../tasks/Task"
 import InfiniteScroll from "react-infinite-scroll-component";
 // import { Spinner } from "react-bootstrap";
 import { fetchMoreData } from "../../utils/utils";

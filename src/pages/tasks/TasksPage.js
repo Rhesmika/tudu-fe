@@ -7,11 +7,12 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/BoardsPage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation } from "react-router";
-import Task from "./Task";
+
 import { Col, Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset.js";
 import { fetchMoreData } from "../../utils/utils";
+import TaskInfo from "../../components/TaskInfo";
 
 
 function TasksPage({ message, filter = ""}) {
@@ -19,6 +20,7 @@ function TasksPage({ message, filter = ""}) {
     const [query, setQuery] = useState("");
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+    // const [showEditForm, setShowEditForm] = useState(false);
 
 
     useEffect(() => {
@@ -75,10 +77,11 @@ function TasksPage({ message, filter = ""}) {
                   children={tasks.results
                     .filter(task => task.is_owner)
                     .map((task) => (
-                    <Task
+
+                    <TaskInfo
                     key={task.id} {...task}
                     setTasks={setTasks}
-                    
+                    // handleEdit={(props) => setShowEditForm(false)}
                     />
                   ))}
                   dataLength={tasks.results.length}
