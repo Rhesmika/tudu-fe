@@ -14,8 +14,6 @@ import TaskEditForm from "./pages/tasks/TaskEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
 
 function App() {
-
-
   return (
     <div className={styles.App}>
       

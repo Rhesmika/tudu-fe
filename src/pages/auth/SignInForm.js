@@ -40,7 +40,6 @@ function SignInForm() {
     } catch (err) {
       setErrors(err.response?.data);
     }
-    console.log(username);
   };
 
   const handleChange = (event) => {

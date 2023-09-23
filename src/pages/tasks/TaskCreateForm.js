@@ -74,7 +74,8 @@ function TaskCreateForm(props) {
         ],
       }));
       setTaskData("");
-      console.log(data)
+      window.location.reload()
+
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -159,10 +160,8 @@ function TaskCreateForm(props) {
           name="priority"
           value={priority}
           onChange={handleChange}
-          defaultValue={"placeholder"}
           className={styles.FormField}
         >
-          <option value={"placeholder"}>Select Priority</option>
           <option value="0">Low</option>
           <option value="1">Medium</option>
           <option value="2">High</option>
@@ -174,16 +173,17 @@ function TaskCreateForm(props) {
         ))}
       </Form.Group>
 
+
+
+
       <Form.Group>
         <Form.Control
           as="select"
           name="status"
-          value={status}
+          value= {status}
           onChange={handleChange}
-          defaultValue={"placeholder"}
           className={styles.FormField}
         >
-          <option value={"placeholder"}>Select Status</option>
           <option value="0">Todo</option>
           <option value="1">In progress</option>
           <option value="2">Completed</option>

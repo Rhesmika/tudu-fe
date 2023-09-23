@@ -38,9 +38,8 @@ const Task = (props) => {
       console.log(err);
     }
   };
-
-  const StatusNums = ["To Do", "In Progress", "Complete"];
   const PriorityNums = ["Low", "Medium", "High"];
+  const StatusNums = ["To Do", "In Progress", "Complete"];
 
   return (
     <>
@@ -78,8 +77,8 @@ const Task = (props) => {
         <Card.Body>
 
           <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
-          <Col className={styles.Details}><b>Priority: </b> {PriorityNums[status]}</Col>
-          <Col className={styles.Details}><b>Status: </b>{StatusNums[priority]}</Col>
+          <Col className={styles.Details}><b>Priority: </b> {PriorityNums[priority]}</Col>
+          <Col className={styles.Details}><b>Status: </b>{StatusNums[status]}</Col>
         </Card.Body>
       </Col>
       </Row>
