@@ -45,9 +45,8 @@ function TasksPage({ message, filter = "", }) {
         });
         setTasks(data);
         setHasLoaded(true);
-        console.log(data)
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         if (err.response?.status !== 401) {
           setErrors(err.response?.data);
         }
