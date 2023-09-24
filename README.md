@@ -87,3 +87,18 @@ At the bottom of each task item is a button which reveals the task attachment li
 <img width="1055" alt="Screenshot 2023-09-25 at 00 52 58" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/a33b2636-3612-447c-9487-818f27cf3a5c">
 A development oppertunity here would be to have the link open in a new tab or to show an attachment preview. Currently the form accepts images only. 
 
+
+The Taks page is accessible from the navbar tab.  This page displays all the tasks the user has made. The default is to produce the list in order of creation. The user can then use the search bar to search for specific tasks, they can also use the sort by drop downs which means the user can specify the priority and status of a task and view all the corresponding tasks. 
+<img width="1226" alt="Screenshot 2023-09-25 at 00 56 12" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/67880d19-9987-436c-a278-0b4f89630127">
+
+A development opperunity here would be to 'clear' the searches and filters. It could be a good idea also to filter by either the priority or the status as currently both will be selected to produce the tasks list. It should be noted here that the tasks page doesn't give the user the option to edit individual tasks.  This is a feature that could be developedin the future. 
+
+### Future features 
++ Add oppertunity for users to collaborate with other users on tasks
++ Move tasks from one board to another
++ Create and work in teams
++ Drag and drop task order
++ Edit task status much easier than completing an entire form
+
+ 
+
