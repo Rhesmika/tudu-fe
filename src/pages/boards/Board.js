@@ -12,8 +12,6 @@ export const Board = (props) => {
         name,
         tasks_count,
     } = props;
-
-    // const currentUser = useCurrentUser();
     const history = useHistory();
 
 

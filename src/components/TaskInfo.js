@@ -15,7 +15,6 @@ import Uploaded from "../assets/uploaded.png";
 
 const TaskInfo = (props) => {
   const { title, description, duedate, priority, status, attachment,  } = props;
-
   const [message, setMessage] = useState();
 
   const attachmentCheck = (attachment) => {

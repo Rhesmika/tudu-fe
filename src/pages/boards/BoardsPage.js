@@ -84,7 +84,7 @@ function BoardsPage({ message, filter = "" }) {
           </Form>
         </div>
         <div
-        class="grid" className={styles.AddBoard}
+        className="grid" className={styles.AddBoard}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         >
@@ -137,7 +137,7 @@ function BoardsPage({ message, filter = "" }) {
         </Col>
       </Row>
 
-      <div class="grid">
+      <div className="grid">
         <Link to={`/boards/create`}>
           <i className="fa-solid fa-plus" ></i>
         </Link>
