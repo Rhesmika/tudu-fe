@@ -54,8 +54,8 @@ function BoardsCreateForm() {
 
     return (
     <Container className={appStyles.Container}>
-        <h1 className={styles.Formtitle}>
-          New Board</h1>
+        <h2 className={styles.Formtitle}>
+          New Board</h2>
         <Form onSubmit={handleSubmit}>
         <Form.Row>
             <Form.Group controlId="name">

@@ -99,18 +99,6 @@ function BoardPage({ filter = "" }) {
                   </Form>
                 </Col>
 
-
-
-                <div className={styles.SortBy}>
-                  <p className={styles.SortTitle}>Status </p>
-                <select>
-                  <option>To do</option>
-                  <option>In Progress</option>
-                  <option>Complete</option>
-                </select>
-                </div>
-
-
               {tasks.results.length ? (
                 <InfiniteScroll
                 children={tasks.results.map((task) => (

@@ -84,7 +84,7 @@ function BoardsPage({ message, filter = "" }) {
           </Form>
         </div>
         <div
-        className="grid" className={styles.AddBoard}
+        className="grid"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         >

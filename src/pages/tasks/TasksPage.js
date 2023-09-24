@@ -136,8 +136,6 @@ function TasksPage({ message, filter = "", }) {
       </Form>
       </Row>
 
-
-
       <Row>
         <Col lg={12}>
           {hasLoaded ? (
