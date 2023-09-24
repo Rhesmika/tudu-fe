@@ -39,27 +39,16 @@ const TaskInfo = (props) => {
 
     <Card className={styles.Task}>
 
-      <Row>
+    <Row>
       <Col xs={6}>
           <Card.Body>
-            <Row className={styles.Title}><h5>{title}</h5></Row>
+            <Row className={styles.Title}><h4>{title}</h4></Row>
             <Row className={styles.Details}>{description}</Row>
-            <div>
-              <button
-              onClick={() => attachmentCheck(attachment)}
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light}`}
-              >
-              See Attachment Link
-              <Image src={Uploaded} className={styles.Paperclip}/>
-              </button>
-              <p>{message}</p>
-            </div>
           </Card.Body>
       </Col>
 
       <Col xs={6}>
         <Card.Body>
-
 
           <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
           <Col className={styles.Details}><b>Priority: </b> {PriorityNums[priority]}</Col>
@@ -67,7 +56,16 @@ const TaskInfo = (props) => {
         </Card.Body>
       </Col>
       </Row>
-
+            <div>
+              <button
+              onClick={() => attachmentCheck(attachment)}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light} ${styles.Attachment}`}
+              >
+              See Attachment Link
+              <Image src={Uploaded} className={styles.Paperclip}/>
+              </button>
+              <p>{message}</p>
+            </div>
     </Card>
     </>
   );

@@ -91,6 +91,7 @@ function TasksPage({ message, filter = "", }) {
       </Row>
 
       <Row className={appStyles.Row}>
+        <h6 className={styles.SortTitle}>Sort By: </h6>
         <Form
           onSubmit={(event) => event.preventDefault()}>
           <Form.Group>
@@ -112,9 +113,7 @@ function TasksPage({ message, filter = "", }) {
             ))}
           </Form.Group>
         </Form>
-      </Row>
 
-      <Row className={appStyles.Row}>
       <Form
           onSubmit={(event) => event.preventDefault()}>
       <Form.Group>
