@@ -102,6 +102,7 @@ function TaskCreateForm(props) {
           value={title}
           onChange={handleChange}
           className={styles.FormField}
+          required
         />
         {errors?.title?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -118,6 +119,7 @@ function TaskCreateForm(props) {
           value={description}
           onChange={handleChange}
           className={styles.FormField}
+          required
         />
         {errors?.description?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -133,6 +135,7 @@ function TaskCreateForm(props) {
           value={duedate}
           onChange={handleChange}
           className={styles.FormField}
+          required
         />
         {errors?.date?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -165,6 +168,7 @@ function TaskCreateForm(props) {
           value={priority}
           onChange={handleChange}
           className={styles.FormField}
+          required
         >
           <option value="0">Low</option>
           <option value="1">Medium</option>
@@ -187,6 +191,7 @@ function TaskCreateForm(props) {
           value= {status}
           onChange={handleChange}
           className={styles.FormField}
+          required
         >
           <option value="0">Todo</option>
           <option value="1">In progress</option>

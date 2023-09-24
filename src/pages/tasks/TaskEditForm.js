@@ -40,7 +40,7 @@ function TaskEditForm(props) {
 
             is_owner ? setTaskData({ title, description, duedate, priority, status, attachment }) : history.push("/");
         } catch (err) {
-            // console.log(err);
+            console.log(err);
         }
     };
 
@@ -90,7 +90,7 @@ function TaskEditForm(props) {
       setShowEditForm(false);
 
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }  
