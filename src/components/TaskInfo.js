@@ -63,8 +63,8 @@ const TaskInfo = (props) => {
 
 
           <Col className={styles.Details}><b>Due: </b>{ duedate}</Col>
-          <Col className={styles.Details}><b>Priority: </b> {PriorityNums[status]}</Col>
-          <Col className={styles.Details}><b>Status: </b>{StatusNums[priority]}</Col>
+          <Col className={styles.Details}><b>Priority: </b> {PriorityNums[priority]}</Col>
+          <Col className={styles.Details}><b>Status: </b>{StatusNums[status]}</Col>
         </Card.Body>
       </Col>
       </Row>
