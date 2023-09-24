@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Tudu - Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tudu is a task management website where users can catagorise, track and update their tasks.Tudu hopes to help users to bring digital organisation to their lives. 
 
-## Available Scripts
+The goal is to ensure users can:
+- Signup/Login and view data that only they can see
+- View all their boards
+- View all their tasks
+- Create Boards
+- Create Tasks (and have them assigned to the board)
+- Edit their Board name
+- Edit and update their Task details
+- Delete Boards
+- Delete Tasks
 
-In the project directory, you can run:
+The React App ensures that the user approaches a functional and easy to use website which has a clean appearance and a clean process to track their task progress. 
+![amiresponsive-tudu](https://github.com/Rhesmika/tudu-fe/assets/100621349/c069c736-547b-474d-b1b3-dfb04b7f0b98)
 
-### `npm start`
+### Design 
+The design of the front end needed to be uncomplicated, but punchy. This was reflected in the font and colour choices. I created the design for the general layout, logo and some icons in Adobe Illustrator.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Logo & Favicon
+![tudu_logo](https://github.com/Rhesmika/tudu-fe/assets/100621349/ad989d40-45e9-40cb-a98d-0a20f340e449)
+![fav_icon](https://github.com/Rhesmika/tudu-fe/assets/100621349/d95cc350-86cd-4cd9-ace2-fc1f546224ff)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+paperclips for task attachment
+![uploaded](https://github.com/Rhesmika/tudu-fe/assets/100621349/2e0c2cd0-56b3-4d3a-8614-043c9862c5e9)
+![upload](https://github.com/Rhesmika/tudu-fe/assets/100621349/5caf15e9-6b31-4f85-b778-53beb3e065f6)
 
-### `npm test`
+Avatars for profiles
+![default_user](https://github.com/Rhesmika/tudu-fe/assets/100621349/883dad42-28c1-406f-ac02-4fb9322cd7fd)
+![default_team](https://github.com/Rhesmika/tudu-fe/assets/100621349/8a3f9be3-5ed7-47fe-b537-a9ab0aea816a)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mock up
+![no-data](https://github.com/Rhesmika/tudu-fe/assets/100621349/7158bad3-e461-4937-b942-066cbb6ff026)
+![Untitled-1](https://github.com/Rhesmika/tudu-fe/assets/100621349/00bea532-ca16-4655-b9ad-f2d718530ba4)
+<img width="520" alt="Screenshot 2023-09-24 at 23 58 34" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/455ff50b-57f3-43e7-8cf0-8ab135691167">
+<img width="675" alt="Screenshot 2023-09-24 at 23 54 51" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/62b7731a-4c08-4a4d-b0ba-19936c0105bf">
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
