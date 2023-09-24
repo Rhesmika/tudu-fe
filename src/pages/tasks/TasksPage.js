@@ -23,7 +23,10 @@ function TasksPage({ message, filter = "", }) {
 
   const [tasks, setTasks] = useState({ results: [] });
   const [query, setQuery] = useState("");
+
   const [status, setStatus] = useState("0");
+  const [priority, setPriority] = useState("0");
+
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [errors, setErrors] = useState({});
@@ -37,7 +40,7 @@ function TasksPage({ message, filter = "", }) {
           params: {
             filter: filter,
             search: query,
-            ordering: status,
+            ordering: status,priority,
           }
         });
         setTasks(data);
@@ -59,7 +62,7 @@ function TasksPage({ message, filter = "", }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, status]);
+  }, [filter, query, pathname, status, priority]);
 
 
 
@@ -90,7 +93,6 @@ function TasksPage({ message, filter = "", }) {
       <Row className={appStyles.Row}>
         <Form
           onSubmit={(event) => event.preventDefault()}>
-        >
           <Form.Group>
             <Form.Control
               as="select"
@@ -98,6 +100,7 @@ function TasksPage({ message, filter = "", }) {
               value={status}
               onChange={(event) => setStatus(event.target.value)}
             >
+              
               <option value="0">Todo</option>
               <option value="1">In progress</option>
               <option value="2">Completed</option>
@@ -111,15 +114,29 @@ function TasksPage({ message, filter = "", }) {
         </Form>
       </Row>
 
+      <Row className={appStyles.Row}>
+      <Form
+          onSubmit={(event) => event.preventDefault()}>
+      <Form.Group>
+        <Form.Control
+          as="select"
+          name="priority"
+          value={priority}
+          onChange={(event) => setPriority(event.target.value)}
+        >
+          <option value="0">Low</option>
+          <option value="1">Medium</option>
+          <option value="2">High</option>
+        </Form.Control>
+        {errors?.priority?.map((idx) => (
+          <Alert variant="warning" key={idx}>
+            Please select task priority
+          </Alert>
+        ))}
+      </Form.Group>
+      </Form>
+      </Row>
 
-      {/* <div className={styles.SortBy}>
-        <p className={styles.SortTitle}>Status </p>
-        <select>
-          <option>To do</option>
-          <option>In Progress</option>
-          <option>Complete</option>
-        </select>
-      </div> */}
 
 
       <Row>
@@ -132,6 +149,8 @@ function TasksPage({ message, filter = "", }) {
                     .filter(task => task.is_owner)
                     .sort((a, b) => a.status - b.status)
                     .filter(task => task.status === parseInt(status))
+                    .sort((a, b) => a.priority - b.priority)
+                    .filter(task => task.priority === parseInt(priority))
                     .map((task) => (
 
                       <TaskInfo
