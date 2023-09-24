@@ -6,7 +6,6 @@ import Form from "react-bootstrap/Form";
 
 import { Link } from 'react-router-dom';
 
-
 import { Board } from "./Board";
 import Asset from "../../components/Asset.js";
 
@@ -20,6 +19,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import { useRedirect } from "../../hooks/useRedirect";
 
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+
 function BoardsPage({ message, filter = "" }) {
   useRedirect("loggedOut");
   const [boards, setBoards] = useState({ results: [] });
@@ -27,6 +29,7 @@ function BoardsPage({ message, filter = "" }) {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
 
 
   useEffect(() => {
@@ -48,7 +51,7 @@ function BoardsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseOver = () => {
