@@ -40,7 +40,7 @@ const Task = (props) => {
       await axiosRes.delete(`/tasks/${id}/`);
       window.location.reload()
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   const PriorityNums = ["Low", "Medium", "High"];

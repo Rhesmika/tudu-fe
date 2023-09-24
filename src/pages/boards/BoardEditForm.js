@@ -32,7 +32,7 @@ function BoardEditForm() {
 
             is_owner ? setBoardData({ name }) : history.push("/");
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -58,7 +58,7 @@ function BoardEditForm() {
         await axiosReq.put(`/boards/${id}/`, formData);
         history.push(`/boards/${id}`);
     } catch(err){
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }  

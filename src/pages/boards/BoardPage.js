@@ -50,8 +50,8 @@ function BoardPage({ filter = "" }) {
               history.push("/boards/")
             }            
           } catch (err) {
-            console.log(err);
-            console.log(err.response)
+            // console.log(err);
+            // console.log(err.response)
           }
         };
 

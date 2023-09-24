@@ -27,7 +27,7 @@ export const Board = (props) => {
         history.push(`/boards`)
         window.location.reload()
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

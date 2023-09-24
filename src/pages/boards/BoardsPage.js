@@ -36,7 +36,7 @@ function BoardsPage({ message, filter = "" }) {
         setBoards(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

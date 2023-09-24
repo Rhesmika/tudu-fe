@@ -41,10 +41,10 @@ function BoardsCreateForm() {
 
     try {
       const {data} = await axiosReq.post('/boards/', formData);
-      console.log(data)
+      // console.log(data)
       history.push(`/boards/${data.id}/`);
     } catch(err){
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }  

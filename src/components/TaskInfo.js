@@ -19,7 +19,6 @@ const TaskInfo = (props) => {
   const [message, setMessage] = useState();
 
   const attachmentCheck = (attachment) => {
-    console.log(attachment)
     if ( attachment !== null) {
       setMessage(
         <Link >

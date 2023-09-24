@@ -8,7 +8,7 @@ function BoardDropdown() {
         axios
             .get("/boards/")
             .then((response) => setBoards({ ...boards, results: response.data.results }))
-            .then((error) => console.log(error))
+            // .then((error) => console.log(error))
         // eslint-disable-next-line
     }, []);
 
