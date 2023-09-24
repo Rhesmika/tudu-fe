@@ -87,30 +87,17 @@ const NavBar = () => {
     </>
   );
 
-  const loggedOutLogo = (
-    <>
-        <NavLink to="/">
-          <Navbar.Brand>
-            <img className={styles.LogoOut} src={logo} alt="logo" height="45" />
-          </Navbar.Brand>
-        </NavLink>
-    </>
-  )
-  const loggedInLogo = (
-    <>
-        <NavLink to="/boards">
-          <Navbar.Brand>
-            <img className={styles.Logo} src={logo} alt="logo" height="45" />
-          </Navbar.Brand>
-        </NavLink>
-    </>
-  )
+
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top" expanded={expanded}>
       <Container>
 
-        {currentUser ? loggedInLogo : loggedOutLogo }
+      <NavLink to="/boards">
+          <Navbar.Brand>
+            <img className={styles.Logo} src={logo} alt="logo" height="45" />
+          </Navbar.Brand>
+        </NavLink>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(!expanded)} ref={ref}/>
         <Navbar.Collapse id="basic-navbar-nav">
