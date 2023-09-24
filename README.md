@@ -37,3 +37,11 @@ Mock up
 <img width="520" alt="Screenshot 2023-09-24 at 23 58 34" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/455ff50b-57f3-43e7-8cf0-8ab135691167">
 <img width="675" alt="Screenshot 2023-09-24 at 23 54 51" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/62b7731a-4c08-4a4d-b0ba-19936c0105bf">
 
+I used Adobe Illustrator to put the mock-up together for this website. The layout of the page is intended to be very linear and clear. I created vector paperclips, the tudu log and the not found (I used an external image as a reference credited below). The Colours are intended to be clean and 'gender nutural'.
+
+### Design Edits 
+The design didn't include for features such as the search bars and dropdown menu which sort the tasks and boards. Becuase of this the styling was created outside of illustrator and directly on the front end.  
+I did need to adjust the styling of the home page as this was overcomplicated for my abilities at this time. 
+
+### Features 
+#### Boards 
