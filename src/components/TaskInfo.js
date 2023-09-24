@@ -50,7 +50,7 @@ const TaskInfo = (props) => {
               onClick={() => attachmentCheck(attachment)}
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Light}`}
               >
-              See attachment
+              See Attachment Link
               <Image src={Uploaded} className={styles.Paperclip}/>
               </button>
               <p>{message}</p>
