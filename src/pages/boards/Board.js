@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import styles from "../../styles/Boards.module.css";
 import { MoreDropdown } from '../../components/MoreDropdown';

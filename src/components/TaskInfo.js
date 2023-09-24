@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Card, Col, Image, Row } from "react-bootstrap";
+
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+
 import styles from "../styles/Task.module.css"
 import btnStyles from "../styles/Button.module.css";
 
-import { MoreDropdown } from '../components/MoreDropdown';
-
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Uploaded from "../assets/uploaded.png";
-import { axiosRes } from '../api/axiosDefaults';
-import TaskEditForm from "../pages/tasks/TaskEditForm";
+
 
 
 const TaskInfo = (props) => {
-  const { id, title, description, duedate, priority, status, attachment, setTasks } = props;
+  const { title, description, duedate, priority, status, attachment,  } = props;
 
   const [message, setMessage] = useState();
 

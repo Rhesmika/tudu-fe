@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Card, Col, Image, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+
+
 import styles from "../../styles/Task.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { MoreDropdown } from '../../components/MoreDropdown';

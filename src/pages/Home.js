@@ -1,4 +1,9 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+
+
 import SignUpForm from "./auth/SignUpForm";
 import styles from "./../styles/Home.module.css"
 

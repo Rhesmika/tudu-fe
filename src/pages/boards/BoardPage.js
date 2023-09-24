@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+
 import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
@@ -16,7 +18,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Task from "../tasks/Task"
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import { Form } from "react-bootstrap";
 
 
 function BoardPage({ filter = "" }) {

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/TasksPage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation } from "react-router";
 
-import { Col, Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset.js";
 import { fetchMoreData } from "../../utils/utils";
