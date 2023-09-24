@@ -24,6 +24,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function BoardsPage({ message, filter = "" }) {
   useRedirect("loggedOut");
+
   const [boards, setBoards] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -64,9 +65,9 @@ function BoardsPage({ message, filter = "" }) {
   return (
     <Container  className={appStyles.Container}>
       <Row className={appStyles.Row}>
-        <h1
+        <h2
         className={styles.Header}
-        >My Boards</h1>
+        >My Boards</h2>
       </Row>
       <Row className={appStyles.Row}>
         <div>

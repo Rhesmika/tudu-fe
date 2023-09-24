@@ -11,17 +11,20 @@ import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContex
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const history = useHistory();
 
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
+      history.push("/");
     } catch (err) {
       // console.log(err);
     }

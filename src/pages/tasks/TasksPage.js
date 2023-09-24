@@ -52,9 +52,9 @@ function TasksPage({ message, filter = ""}) {
   return (
     <Container  className={appStyles.Container}>
       <Row className={appStyles.Row}>
-        <h1
+        <h2
         className={styles.Header}
-        >My Tasks</h1>
+        >My Tasks</h2>
       </Row>
 
       <Row className={appStyles.Row}>
