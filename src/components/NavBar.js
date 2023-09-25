@@ -46,7 +46,6 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         className={styles.NavLink}
-        // activeClassName={styles.Active}
         to="/"
         onClick={handleSignOut}>
         <i className="fa-solid fa-arrow-right-from-bracket"></i>Sign out
@@ -93,7 +92,7 @@ const NavBar = () => {
     <Navbar className={styles.NavBar} expand="md" fixed="top" expanded={expanded}>
       <Container>
 
-      <NavLink to="/boards">
+      <NavLink to="/">
           <Navbar.Brand>
             <img className={styles.Logo} src={logo} alt="logo" height="45" />
           </Navbar.Brand>
