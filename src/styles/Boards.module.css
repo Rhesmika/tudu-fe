@@ -7,7 +7,6 @@
     color: #F2B55A;
 }
 
-
 .TaskCount{
     background-color: #F0ECEF;
     border-radius: 25px;
@@ -15,8 +14,8 @@
     padding: 10px;
     color: #3A4A56;
     text-align: center;
-
 }   
+
 .Edit{
     background-color: #EFD6B4;
     border-radius: 25px;
@@ -28,10 +27,10 @@
     color: white;
     text-align: center;
 }
+
 .Card{
     border-radius: 25px;
     margin-bottom: 20px;
-
 }
 
 .More{

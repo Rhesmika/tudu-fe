@@ -5,7 +5,7 @@
   }
   
   .Absolute {
-    float: absolute;
+    float:inline-end;
     right: 0;
     z-index: 99;
   }
