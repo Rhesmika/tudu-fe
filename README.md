@@ -124,6 +124,6 @@ JSX
 The JSX code was validated throughout the development process and corrected throughout. 
 
 CSS
-
+All CSS code was run through the W3C CSS Validation Service and passed.  One 2 small errors came up relating to the margin height in the 'not found' image which was easily rectifed. 
 
 
