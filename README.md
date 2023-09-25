@@ -100,5 +100,30 @@ A development opperunity here would be to 'clear' the searches and filters. It c
 + Drag and drop task order
 + Edit task status much easier than completing an entire form
 
- 
+ ### Technologies Used 
+Languages:
++ Javascript
++ HTML 5
++ CSS3
+
+Frameworks:
++ React
++ React Bootsrap
++ Axios
++ jwt-decode
++ React-router-dom
++ ElephantSQL
++ Github
++ Prettier
+
+### Testing 
+Manual testing was undertaken and documented using the document below 
+[FE- Tests.pdf](https://github.com/Rhesmika/tudu-fe/files/12709999/FE-.Tests.pdf)
+
+JSX
+The JSX code was validated throughout the development process and corrected throughout. 
+
+CSS
+
+
 
