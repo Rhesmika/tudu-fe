@@ -120,10 +120,25 @@ Frameworks:
 Manual testing was undertaken and documented using the document below 
 [FE- Tests.pdf](https://github.com/Rhesmika/tudu-fe/files/12709999/FE-.Tests.pdf)
 
-JSX
+#### JSX
 The JSX code was validated throughout the development process and corrected throughout. 
 
-CSS
+
+#### CSS
 All CSS code was run through the W3C CSS Validation Service and passed.  One 2 small errors came up relating to the margin height in the 'not found' image which was easily rectifed. 
+
+#### Lighthouse Scores
+<img width="377" alt="Screenshot 2023-09-25 at 01 37 39" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/92eec69f-f65b-4acd-8ebf-a67a167c67ae">
+
+## Issues 
+One of the issues i had was when creating the sort by options on the task page. The issue was related to how i set the tasks. With the help of tutor assistance, the infinate scoll map was readdressed and now works without a problem. 
+Another issue I had was related to to how a file attachment would be added to a task. It was discovered that the back end needed to have a urllib3==1.26.15 installed which helps to handle the file url.  Along with a small error made in the form, the issue was addressed and solved.  
+
+## Credits 
++ Form File Field - https://www.youtube.com/watch?v=Rr1-UTFCuH4&t=6s
++ Setting Defaults - https://www.geeksforgeeks.org/how-to-set-default-value-in-select-using-reactjs/
++ Setting Defaults - https://simplefrontend.com/default-value-for-select-elements-in-react/?utm_content=cmp-true
++ Handling Events info - https://legacy.reactjs.org/docs/handling-events.html
++ Inspiration for no results icon - https://stock.adobe.com/uk/search/images?filters%5Bcontent_type%3Azip_vector%5D=1&hide_panel=true&k=no+results&search_type=usertyped&asset_id=472674595
 
 
