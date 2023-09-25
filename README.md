@@ -142,3 +142,5 @@ Another issue I had was related to how a file attachment would be added to a tas
 + Setting Defaults - https://simplefrontend.com/default-value-for-select-elements-in-react/?utm_content=cmp-true
 + Handling Events info - https://legacy.reactjs.org/docs/handling-events.html
 + Inspiration for no results icon - https://stock.adobe.com/uk/search/images?filters%5Bcontent_type%3Azip_vector%5D=1&hide_panel=true&k=no+results&search_type=usertyped&asset_id=472674595
++ More Dropdown component - CI Moments 
++ Not Found component - CI Moments
