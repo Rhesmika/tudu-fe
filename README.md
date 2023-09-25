@@ -52,6 +52,7 @@ The navbar icons will change colour based on the page they are on. This is a vis
 
 
 #### Boards 
+The Board is a reusable component.
 The boards page lists all of the boards that the user has created. The user is able to search for a board title. On ethis page there is the option to 'add board' when the mouse hovers over the '+' icon at the top and bottom of the page. 
 Each board is listed below the search bar and notes how many tasks are assigned to each baord. 
 <img width="1211" alt="Screenshot 2023-09-25 at 00 34 33" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/960bc430-1cab-48af-8e7c-36ac06b627dd">
@@ -73,6 +74,7 @@ On the board page, the user will see a list of all the tasks assigned to the boa
 The user has ability to edit the board by clicking the three dots in the corner of the task which reveals 2 icons. When the user presses the edit icon, the edit form is revealed. WHen the user presses the bin icon, the board is deleted
 
 ### Tasks
+The Task is a reusable component & Task info are reusable components
 The user can then create a task which is automatically assigned to their board. 
 <img width="1206" alt="Screenshot 2023-09-25 at 00 46 24" src="https://github.com/Rhesmika/tudu-fe/assets/100621349/1fd968bf-3bb8-4ae5-a949-d1e32fc0bc42">
 
@@ -106,15 +108,15 @@ Languages:
 + HTML 5
 + CSS3
 
-Frameworks:
-+ React
-+ React Bootsrap
-+ Axios
-+ jwt-decode
-+ React-router-dom
-+ ElephantSQL
-+ Github
-+ Prettier
+Frameworks & Libraries:
++ React - Front End Javascript Library which was used to build the interfaces
++ React Bootsrap - Component-based library which makes components responsive
++ Axios - Allows reuqests to be made to the API from the font end
++ jwt-decode - Decode and extract information
++ React-router-dom 
++ ElephantSQL - Software which stores all the data (database) from the API
++ Github - store and hold project and versioning
++ Prettier - Code Formatter
 
 ### Testing 
 Manual testing was undertaken and documented using the document below 
@@ -140,5 +142,3 @@ Another issue I had was related to how a file attachment would be added to a tas
 + Setting Defaults - https://simplefrontend.com/default-value-for-select-elements-in-react/?utm_content=cmp-true
 + Handling Events info - https://legacy.reactjs.org/docs/handling-events.html
 + Inspiration for no results icon - https://stock.adobe.com/uk/search/images?filters%5Bcontent_type%3Azip_vector%5D=1&hide_panel=true&k=no+results&search_type=usertyped&asset_id=472674595
-
-
